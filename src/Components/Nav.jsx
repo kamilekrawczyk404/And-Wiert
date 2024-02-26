@@ -67,10 +67,11 @@ export const Nav = ({
             <FontAwesomeIcon icon={faBars} className={" text-dark-blue" + ""} />
           </button>
         </section>
-        <div
+        <Container
+            paddings={menuClicked}
           className={
-            "absolute flex items-center flex-col justify-center gap-16 text-2xl lg:hidden left-0 sm:top-[9rem] bg-white border-t-[.2rem] border-dark-blue transition-[width] z-20 " +
-            (menuClicked ? "w-full " : "w-0 ") +
+            "absolute flex flex-col justify-center gap-8 text-2xl lg:hidden left-0 sm:top-[9rem] bg-white border-t-[.2rem] border-dark-blue transition-[width] z-20 p-0 " +
+            (menuClicked ? "w-full " : "w-0  ") +
             (userScrolled
               ? "md:top-[6rem] top-[5.5rem] md:h-[calc(100vh-3rem)] h-[calc(100vh-5rem)]"
               : "top-[8.5rem] h-[calc(100vh-8rem)]")
@@ -79,7 +80,7 @@ export const Nav = ({
           {links.map((link, index) => (
             <Anchor
               key={index}
-              className={!menuClicked && "hidden"}
+              className={"text-dark-blue text-semibold text-2xl w-fit " + (!menuClicked && "hidden")}
               animated={true}
               onClick={() => {
                 setMenuClicked(false);
@@ -89,7 +90,7 @@ export const Nav = ({
               {link.title}
             </Anchor>
           ))}
-        </div>
+        </Container>
       </Container>
     </nav>
   );

@@ -35,7 +35,7 @@ export const Services = forwardRef(({ ...props }, ref) => {
     <Container
       ref={ref}
       className={
-        "relative h-screen flex lg:gap-48 gap-8 lg:flex-row flex-col items-center justify-center"
+        "relative xl:h-screen flex lg:gap-48 gap-8 lg:flex-row flex-col items-center justify-center"
       }
       {...props}
     >

@@ -100,12 +100,12 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
             <Link href={`tel:+48${contact.telephone}`}>
               <p
                 className={
-                  "text-gray-100 md:text-3xl text-2xl whitespace-nowrap px-8"
+                  "text-gray-100 md:text-3xl text-2xl whitespace-nowrap md:px-8 sm:px-4 px-2"
                 }
               >
                 {" "}
                 Zadzwoń do nas{" "}
-                <span className={"ml-6 text-dark-orange font-semibold"}>
+                <span className={"md:ml-6 sm:ml-4 ml-0 text-dark-orange font-semibold"}>
                   {contact.telephone}
                 </span>
               </p>
@@ -120,19 +120,19 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
         >
           <div
             className={
-              "relative top-0 z-10 flex flex-col gap-4 bg-gradient-to-r from-gray-100 via-80% via-[rgba(255,255,255,0.75)] rounded p-4"
+              "relative top-0 z-10 flex flex-col gap-4 bg-gradient-to-r from-gray-100 via-80% via-[rgba(255,255,255,0.75)] rounded p-4 w-full"
             }
           >
             <h1
               className={
-                "text-dark-blue lg:text-5xl md:text-4xl text-3xl font-bold whitespace-nowrap"
+                "text-dark-blue lg:text-5xl md:text-4xl text-3xl font-bold"
               }
             >
-              Studnie głębinowe And-Wiert
+              Studnie głębinowe <p className={'text-dark-orange'}>And-Wiert</p>
             </h1>
             <p
               className={
-                "text-gray-700 z-10 lg:text-xl md:text-lg text-md lg:w-[80%] md:w-[90%] w-full"
+                "text-gray-700 z-10 lg:text-xl md:text-lg sm:text-md text-sm lg:w-[80%] md:w-[90%] w-full"
               }
             >
               Doświadczona firma, specjalizującą się w dostarczaniu

@@ -39,7 +39,7 @@ export const Counter = ({ achievement }) => {
   return (
     <div
       className={
-        "flex w-full flex-row items-center lg:gap-14 md:gap-12 gap-8 lg:p-6 p-4 border-light-orange border-2 first-of-type:rounded-l last-of-type:rounded-r first-of-type:border-r-0 last-of-type:border-l-0 shadow-xl [&>div]:hover:scale-105 [&>div>svg]:hover:text-light-orange"
+        "flex w-full flex-row items-center lg:gap-14 md:gap-12 gap-8 lg:p-6 p-4 bg-white shadow-xl [&>div]:hover:scale-105 rounded"
       }
     >
       <div
@@ -49,13 +49,13 @@ export const Counter = ({ achievement }) => {
       >
         <div
           className={
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center lg:w-[5rem] md:w-[4rem] w-[3rem] aspect-square rounded-full opacity-25 bg-gray-100"
+            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center lg:w-[5rem] md:w-[4rem] w-[3rem] aspect-square rounded-full opacity-25 bg-dark-blue"
           }
         ></div>
         <FontAwesomeIcon
           icon={achievement.icon}
           className={
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-4xl text-2xl text-white transition"
+            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-4xl text-2xl text-dark-blue transition"
           }
         />
       </div>
@@ -67,7 +67,7 @@ export const Counter = ({ achievement }) => {
         <span className={"lg:text-4xl text-2xl text-dark-orange font-bold"}>
           {achievement?.percentage ? "%" : "+"}
         </span>
-        <p ref={magicElement} className={"md:text-base text-xs text-gray-100"}>
+        <p ref={magicElement} className={"md:text-base text-xs text-dark-blue"}>
           {achievement.title}
         </p>
       </div>

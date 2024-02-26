@@ -38,7 +38,7 @@ export const OtherServices = forwardRef(({ ...props }, ref) => {
     <Container
       ref={ref}
       className={
-        "relative lg:h-screen md:max-h-screen flex flex-col 2xl:gap-[25%] xl:gap-[20%] h-auto xl:flex-row"
+        "relative xl:h-screen flex flex-col 2xl:gap-[25%] xl:gap-[20%] h-auto xl:flex-row"
       }
       {...props}
     >

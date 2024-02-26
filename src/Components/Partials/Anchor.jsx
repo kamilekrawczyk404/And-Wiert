@@ -15,7 +15,7 @@ export const Anchor = forwardRef(
       <button
         ref={ref}
         className={
-          "relative flex items-center justify-center gap-2 hover:cursor-pointer " +
+          "relative flex items-center gap-2 hover:cursor-pointer " +
           (animated ? " [&>span]:hover:w-full " : "") +
           className
         }

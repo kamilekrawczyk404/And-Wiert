@@ -49,7 +49,7 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
       ],
     },
     {
-      title: "Projektowanie i Budowa Systemów Wodociągowych",
+      title: "Przyłącze wodociągowe",
       description: [
         {
           text: "Zapewniamy kompleksową budowę instalacji wodociągowej, łącznie z pompami, zbiornikami i systemami uzdatniania wody.",
@@ -85,7 +85,7 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
     <Container
       ref={ref}
       className={
-        "relative lg:h-screen md:max-h-screen h-auto flex items-center"
+        "relative xl:h-screen flex items-center"
       }
       {...props}
     >
@@ -118,19 +118,19 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
               className={
                 "transition-all duration-[.75s] ease-in-out flex items-center " +
                 (active === index
-                  ? "h-[50vh] opacity-1"
+                  ? "xl:h-[50vh] h-[75vh] opacity-1"
                   : "h-0 overflow-hidden opacity-0")
               }
             >
               <div
                 className={
                   "p-4 flex items-start justify-around gap-4 " +
-                  (index === 2 ? "flex-row" : "flex-col md:flex-row")
+                  (index === 2 ? "flex-row mx-auto" : "flex-col md:flex-row")
                 }
               >
                 <ul
                   className={
-                    "text-gray-700 list-disc list-inside md:w-1/2 w-full space-y-2"
+                    "text-gray-700 list-disc list-inside md:w-1/2 w-full space-y-2 " + (index === 2 ? "hidden" : "block")
                   }
                 >
                   {stage.description.map((element, index) => (
@@ -146,7 +146,7 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
                   />
                 ) : (
                   <video
-                    className={"h-[48vh] rounded"}
+                    className={"sm:h-[48vh] h-[70vh] rounded"}
                     src={`./diggingStages/stages${index + 1}.mp4`}
                     autoPlay={true}
                     muted={true}
