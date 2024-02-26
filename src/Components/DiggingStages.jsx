@@ -141,7 +141,7 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
                 {index !== 2 ? (
                   <img
                     className={"rounded md:w-[40vw] w-[75vw] h-auto mx-auto"}
-                    src={`./diggingStages/stages${index + 1}.jpg`}
+                    src={`./diggingStages/stages${index + 1}.webp`}
                     alt={`Stage_${index}`}
                   />
                 ) : (

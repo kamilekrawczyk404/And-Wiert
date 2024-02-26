@@ -14,11 +14,11 @@ export const Gallery = forwardRef(({ ...props }, ref) => {
   }, []);
   const images = [
     // "gallery1.jpg",
-    "gallery2.jpg",
-    "gallery3.jpg",
-    "gallery4.jpg",
-    "zdj1.jpg",
-    "zdj2.jpg",
+    "gallery2.webp",
+    "gallery3.webp",
+    "gallery4.webp",
+    "zdj1.webp",
+    "zdj2.webp",
   ];
 
   const mainOptions = {

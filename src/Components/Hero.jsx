@@ -8,7 +8,7 @@ import Animation from "../Classes/Animation.js";
 
 export const Hero = ({ contact, userScrolled, handleScroll }) => {
   const TIMEOUT = 10000;
-  const images = ["main1.jpg", "main2.jpg", "main3.jpg"];
+  const images = ["main1.webp", "main2.webp", "main3.webp"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

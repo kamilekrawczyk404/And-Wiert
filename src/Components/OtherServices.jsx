@@ -61,14 +61,14 @@ export const OtherServices = forwardRef(({ ...props }, ref) => {
           className={
             "xl:absolute xl:-left-2/3 xl:top-[30%] xl:border-[.5rem] xl:border-dark-blue xl:hover:border-dark-orange xl:max-w-[30vw] xl:block hidden rounded h-auto hover:z-10 hover:scale-[1.025] transition-all hover:cursor-pointer"
           }
-          src="./carTransport/car_transport2.jpg"
+          src="./carTransport/car_transport2.webp"
           alt="zdj"
         />
         <img
           className={
             "xl:absolute xl:top-1/2 xl:-left-1/3 xl:hover:border-dark-orange xl:border-[.5rem] lg:border-white rounded xl:max-w-[35vw] lg:max-w-[50vw] sm:max-w-[75vw] h-auto hover:z-10 sm:hover:scale-105 hover:scale-[1.025] transition-all lg:mx-0 mx-auto md:mb-12 mb-4 hover:cursor-pointer"
           }
-          src="./carTransport/car_transport1.jpg"
+          src="./carTransport/car_transport1.webp"
           alt="zdj"
         />
       </div>

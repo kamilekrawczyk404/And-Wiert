@@ -33,13 +33,13 @@ export const Article = ({
         "relative flex flex-col justify-center text-gray-700 lg:py-16 py-8"
       }
     >
-      <p
+      <h1
         className={
-          "text-dark-orange font-semibold sm:text-xl text-md underline mb-2"
+          "text-dark-orange font-semibold sm:text-2xl text-lg underline mb-2"
         }
       >
         {title}
-      </p>
+      </h1>
       <article className={"flex flex-col gap-4 justify-center " + className}>
         <h1
           className={
