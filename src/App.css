@@ -1,0 +1,34 @@
+html {
+    scroll-behavior: smooth;
+}
+.main-bg-contain::before, .main-bg-cover::before {
+    content: '';
+    background: url("../public/hero/main1.jpg") no-repeat;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.main-bg-cover::before {
+    background-size: cover;
+
+}
+.main-bg-contain::before {
+    background-size: contain;
+}
+
+.thumbnail.active {
+    /*background-color: red;*/
+}
+.thumbnails .splide__slide.is-active {
+    border-color: #FFD500 !important;
+}
+.thumbnails .splide__slide {
+    border-radius: .5rem;
+}
+
+li::marker {
+    color: #FFD500;
+}
