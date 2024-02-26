@@ -69,7 +69,7 @@ export const Gallery = forwardRef(({ ...props }, ref) => {
       <SplideSlide key={key} className={"rounded-md overflow-hidden"}>
         <img
           className={"rounded-md"}
-          src={`public/gallery/${image}`}
+          src={`./gallery/${image}`}
           alt={""}
         />
       </SplideSlide>

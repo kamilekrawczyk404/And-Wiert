@@ -49,14 +49,14 @@ export const Services = forwardRef(({ ...props }, ref) => {
           className={
             "hover:border-dark-orange border-dark-blue border-[.5rem] absolute top-0 left-0 max-w-[18rem] block rounded transition-all h-auto hover:z-20 hover:scale-105"
           }
-          src="public/zdj2.jpg"
+          src="./zdj2.jpg"
           alt="zdj"
         />
         <img
           className={
             "translate-x-1/3 translate-y-[40%] border-[.5rem] transition-all border-white hover:border-dark-orange rounded max-w-[18rem] h-auto hover:z-20 hover:scale-105 "
           }
-          src="public/zdj1.jpg"
+          src="./zdj1.jpg"
           alt="zdj"
         />
       </aside>

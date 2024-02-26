@@ -141,13 +141,13 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
                 {index !== 2 ? (
                   <img
                     className={"rounded md:w-[40vw] w-[75vw] h-auto mx-auto"}
-                    src={`public/diggingStages/stages${index + 1}.jpg`}
+                    src={`./diggingStages/stages${index + 1}.jpg`}
                     alt={`Stage_${index}`}
                   />
                 ) : (
                   <video
                     className={"h-[48vh] rounded"}
-                    src={`public/diggingStages/stages${index + 1}.mp4`}
+                    src={`./diggingStages/stages${index + 1}.mp4`}
                     autoPlay={true}
                     muted={true}
                     loop={true}
