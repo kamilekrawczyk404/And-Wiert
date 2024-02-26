@@ -53,7 +53,7 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
           <img
             key={index}
             ref={(element) => (imagesRefs.current[index] = element)}
-            src={`public/hero/${image}`}
+            src={`./hero/${image}`}
             className={
               "hero-image absolute top-0 left-0 h-full w-full " +
               (index === 0 ? "opacity-100" : "opacity-0")
