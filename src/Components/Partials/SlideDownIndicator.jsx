@@ -5,7 +5,7 @@ export const SlideDownIndicator = ({ handleScroll }) => {
   return (
     <div
       className={
-        "absolute left-1/2 -translate-x-1/2 bottom-[10%] animate-bounce rounded-full"
+        "absolute left-1/2 -translate-x-1/2 lg:bottom-[10%] bottom-[20%] animate-bounce rounded-full"
       }
     >
       <button
