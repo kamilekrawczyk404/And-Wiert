@@ -11,14 +11,14 @@ export const NavContact = ({ contact }) => {
     >
       <div className={"flex md:gap-8 gap-4 items-center justify-center"}>
         <span className={"text-lg sm:inline hidden"}>Kontakt:</span>
-        <Link href={`tel:+48${contact.telephone}`}>
+        <Link href={`tel:+48${contact.telephone}`} title={"Zadzwoń do nas!"}>
           <FontAwesomeIcon
             icon={faPhoneVolume}
             className={"text-dark-orange text-xl"}
           />
           <span>{contact.telephone}</span>
         </Link>
-        <Link href={`mailto:${contact.email}`}>
+        <Link href={`mailto:${contact.email}`} title={"Napisz do nas mail'a!"}>
           <FontAwesomeIcon
             icon={faEnvelope}
             className={"text-dark-orange text-xl"}
@@ -29,8 +29,9 @@ export const NavContact = ({ contact }) => {
       <div className={"flex md:gap-8 gap-4 items-center justify-center"}>
         <span className={"text-lg sm:inline hidden"}>Obserwuj nas:</span>
         <Link
-          href={"https://www.facebook.com/andrzej.wolski.37201"}
+          href={contact.facebook}
           target={"_blank"}
+          title={"Odwiedź nas na Facebook'u"}
         >
           <FontAwesomeIcon
             icon={faFacebook}

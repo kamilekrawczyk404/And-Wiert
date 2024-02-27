@@ -6,7 +6,7 @@ import { Container } from "./Partials/Container.jsx";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Animation from "../Classes/Animation.js";
 
-export const Hero = ({ contact, userScrolled, handleScroll }) => {
+export const Hero = ({ contact, userScrolled, handleScroll, altAttributeText }) => {
   const TIMEOUT = 10000;
   const images = ["main1.webp", "main2.webp", "main3.webp"];
 
@@ -58,7 +58,7 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
               "hero-image absolute top-0 left-0 h-full w-full " +
               (index === 0 ? "opacity-100" : "opacity-0")
             }
-            alt="hero image"
+            alt={altAttributeText + ", czysta kropla wody, czysta woda, błekitna woda, nieskazitelnie czysta woda"}
           />
         ))}
         <div
@@ -77,7 +77,7 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
         <div className={"relative h-[50vh]"}>
           <div
             className={
-              "absolute top-0 left-0 lg:w-20 md:w-20 w-16  h-[50vh] bg-dark-blue rounded-sm"
+              "absolute top-0 left-0 lg:w-20 md:w-20 w-16 h-[50vh] bg-dark-blue rounded-sm"
             }
           ></div>
           <div
@@ -90,14 +90,14 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
                 "bg-dark-orange md:h-[5rem] h-[4rem] aspect-square flex items-center justify-center"
               }
             >
-              <Link href={`mailto:${contact.email}`}>
+              <Link href={`mailto:${contact.telephone}`} title={"Zadzwoń do nas!"}>
                 <FontAwesomeIcon
                   icon={faPhoneVolume}
                   className={"text-dark-blue md:text-3xl text-2xl"}
                 />
               </Link>
             </div>
-            <Link href={`tel:+48${contact.telephone}`}>
+            <Link href={`tel:+48${contact.telephone}`}  title={"Zadzwoń do nas!"}>
               <p
                 className={
                   "text-gray-100 md:text-3xl text-2xl whitespace-nowrap md:px-8 sm:px-4 px-2"
@@ -115,12 +115,12 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
 
         <div
           className={
-            "relative md:left-6 left-4 lg:-translate-y-1/2 -translate-y-1/2"
+            "relative md:left-6 left-4  -translate-y-1/2"
           }
         >
           <div
             className={
-              "relative top-0 z-10 flex flex-col gap-4 bg-gradient-to-r from-gray-100 via-80% via-[rgba(255,255,255,0.75)] rounded p-4 w-full"
+              "relative z-10 flex flex-col gap-4 bg-gradient-to-r from-gray-100 via-80% via-[rgba(255,255,255,0.9)] rounded p-4 w-full"
             }
           >
             <h1
@@ -128,7 +128,7 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
                 "text-dark-blue lg:text-5xl md:text-4xl text-3xl font-bold"
               }
             >
-              Studnie głębinowe <p className={'text-dark-orange'}>And-Wiert</p>
+              Studnie głębinowe<p className={'text-dark-orange'}>And-Wiert</p>
             </h1>
             <p
               className={
@@ -136,7 +136,7 @@ export const Hero = ({ contact, userScrolled, handleScroll }) => {
               }
             >
               Doświadczona firma, specjalizującą się w dostarczaniu
-              profesjonalnych usług z zakresu pozyskiwania wody gruntowej.
+              profesjonalnych usług z zakresu pozyskiwania wody.
             </p>
           </div>
         </div>

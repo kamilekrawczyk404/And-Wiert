@@ -5,7 +5,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { forwardRef, useLayoutEffect, useRef, useState } from "react";
 import Animation from "../Classes/Animation.js";
 
-export const DiggingStages = forwardRef(({ ...props }, ref) => {
+export const DiggingStages = forwardRef(({ altAttributeText, ...props }, ref) => {
   const [active, setActive] = useState(0);
 
   const stages = [
@@ -20,17 +20,6 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
         },
         {
           text: "To pozwala nam określić optymalną lokalizację studni, minimalizując ryzyko problemów z jakością wody czy trudnościami w procesie wiercenia,",
-        },
-      ],
-    },
-    {
-      title: "Badanie Wód Podziemnych",
-      description: [
-        {
-          text: "Przeprowadzamy precyzyjne badania jakości wód podziemnych, analizując ich skład chemiczny i mikrobiologiczny,",
-        },
-        {
-          text: "Oceniamy poziom zanieczyszczeń, aby zagwarantować, że woda spełnia wszystkie normy i jest bezpieczna do spożycia.",
         },
       ],
     },
@@ -103,6 +92,7 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
               onClick={() => {
                 setActive((prev) => (prev === index ? -1 : index));
               }}
+              title={"Kliknij by rozwinąć okno"}
             >
               <FontAwesomeIcon
                 icon={faAngleRight}
@@ -118,19 +108,19 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
               className={
                 "transition-all duration-[.75s] ease-in-out flex items-center " +
                 (active === index
-                  ? "xl:h-[50vh] h-[75vh] opacity-1"
+                  ? "xl:h-[50vh] h-[70vh] opacity-1"
                   : "h-0 overflow-hidden opacity-0")
               }
             >
               <div
                 className={
                   "p-4 flex items-start justify-around gap-4 " +
-                  (index === 2 ? "flex-row mx-auto" : "flex-col md:flex-row")
+                  (index === 1 ? "flex-row mx-auto" : "flex-col md:flex-row")
                 }
               >
                 <ul
                   className={
-                    "text-gray-700 list-disc list-inside md:w-1/2 w-full space-y-2 " + (index === 2 ? "hidden" : "block")
+                    "text-gray-700 list-disc list-inside md:w-1/2 w-full space-y-2 " + (index === 1 ? "hidden" : "block")
                   }
                 >
                   {stage.description.map((element, index) => (
@@ -138,11 +128,11 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
                   ))}
                 </ul>
 
-                {index !== 2 ? (
+                {index !== 1 ? (
                   <img
-                    className={"rounded md:w-[40vw] w-[75vw] h-auto mx-auto"}
+                    className={"rounded w-[30rem] h-auto mx-auto"}
                     src={`./diggingStages/stages${index + 1}.webp`}
-                    alt={`Stage_${index}`}
+                    alt={altAttributeText.text}
                   />
                 ) : (
                   <video
@@ -151,6 +141,8 @@ export const DiggingStages = forwardRef(({ ...props }, ref) => {
                     autoPlay={true}
                     muted={true}
                     loop={true}
+                    controls={true}
+                    title={'Wideo prezentujące przykładową realizacje wykonania studni głębinowej'}
                   />
                 )}
               </div>

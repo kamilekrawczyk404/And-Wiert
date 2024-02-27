@@ -8,12 +8,12 @@ export const SlideUpIndicator = ({ handleScrollToTop }) => {
         "fixed sm:bottom-[2.5rem] sm:right-[2.5rem] bottom-[2rem] right-[2rem] rounded-full z-50"
       }
     >
-      <a
+      <button
         onClick={() => handleScrollToTop()}
-        href={"#"}
         className={
           "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-light-orange w-[3rem] aspect-square rounded-full hover:bg-dark-orange transition"
         }
+        title={"Przewiń w górę"}
       >
         <FontAwesomeIcon
           icon={faAnglesUp}
@@ -21,7 +21,7 @@ export const SlideUpIndicator = ({ handleScrollToTop }) => {
             "text-2xl text-dark-blue z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           }
         />
-      </a>
+      </button>
     </div>
   );
 };

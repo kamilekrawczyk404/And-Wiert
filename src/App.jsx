@@ -10,15 +10,24 @@ import { DiggingStages } from "./Components/DiggingStages.jsx";
 import { CallService } from "./Components/CallService.jsx";
 import { OtherServices } from "./Components/OtherServices.jsx";
 import { Footer } from "./Components/Footer.jsx";
+import {WorkMap} from "./Components/WorkMap.jsx";
 
 function App() {
   const [userScrolled, setUserScrolled] = useState(false);
   const pageRefs = useRef([]);
 
+  
+  // index.html -> site address and check logo
+  
   const contact = {
     telephone: "500327556",
     email: "andrzejw520@interia.eu",
+     facebook: "https://www.facebook.com/andrzej.wolski.37201"
   };
+  
+  const altAttributeText = {
+     text: "przykładowa realizacja studni głębinowej u klienta, studnia głębinowa, małopolska, podkarpacie, Ciężkowicie, Bobowa, Gromnik, Gorlice, Stróże, Nowy Sącz, Grybów, Korzenna, czysta woda, ujęcie wody, studnie głębinowe firma, autolaweta, przewóz rzeczy, samochodów"
+  }
 
   const links = [
     { anchor: 0, title: "O nas" },
@@ -70,13 +79,15 @@ function App() {
         contact={contact}
         userScrolled={userScrolled}
         handleScroll={scrollToTheElement}
+        altAttributeText={altAttributeText}
       />
-      <Services ref={(element) => (pageRefs.current[0] = element)} />
+      <Services ref={(element) => (pageRefs.current[0] = element)} altAttributeText={altAttributeText}/>
       <Counters />
-      <DiggingStages ref={(element) => (pageRefs.current[1] = element)} />
+      <DiggingStages ref={(element) => (pageRefs.current[1] = element)} altAttributeText={altAttributeText} />
       <CallService contact={contact} />
-      <Gallery ref={(element) => (pageRefs.current[2] = element)} />
-      <OtherServices ref={(element) => (pageRefs.current[3] = element)} />
+      <Gallery ref={(element) => (pageRefs.current[2] = element)} altAttributeText={altAttributeText}/>
+       {/*<WorkMap />*/}
+      <OtherServices ref={(element) => (pageRefs.current[3] = element)} altAttributeText={altAttributeText} />
       <Footer
         contact={contact}
         links={links}

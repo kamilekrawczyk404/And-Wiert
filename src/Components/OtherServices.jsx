@@ -3,7 +3,7 @@ import { Article } from "./Partials/Article.jsx";
 import { forwardRef, useLayoutEffect, useRef } from "react";
 import Animation from "../Classes/Animation.js";
 
-export const OtherServices = forwardRef(({ ...props }, ref) => {
+export const OtherServices = forwardRef(({ altAttributeText, ...props }, ref) => {
   const aspects = [
     {
       title:
@@ -38,7 +38,7 @@ export const OtherServices = forwardRef(({ ...props }, ref) => {
     <Container
       ref={ref}
       className={
-        "relative xl:h-screen flex flex-col 2xl:gap-[25%] xl:gap-[20%] h-auto xl:flex-row"
+        "relative xl:h-screen flex flex-col justify-between h-auto xl:flex-row xl:gap-[20%] lg:gap-[15%]"
       }
       {...props}
     >
@@ -54,22 +54,24 @@ export const OtherServices = forwardRef(({ ...props }, ref) => {
       <div
         ref={imagesRef}
         className={
-          "relative h-full w-full xl:block flex items-center justify-center opacity-0 translate-x-12"
+          "relative h-full w-full xl:block flex items-center justify-center opacity-0 sm:translate-x-12 translate-x-4"
         }
       >
         <img
           className={
-            "xl:absolute xl:-left-2/3 xl:top-[30%] xl:border-[.5rem] xl:border-dark-blue xl:hover:border-dark-orange xl:max-w-[30vw] xl:block hidden rounded h-auto hover:z-10 hover:scale-[1.025] transition-all hover:cursor-pointer"
+            "xl:absolute xl:right-1/2 xl:top-[30%] xl:border-[.5rem] xl:border-dark-blue xl:hover:border-dark-orange xl:max-w-[25rem] xl:block hidden rounded h-auto hover:z-10 hover:scale-[1.025] transition-all hover:cursor-pointer"
           }
           src="./carTransport/car_transport2.webp"
-          alt="zdj"
+          alt={altAttributeText.text + ", przewóz budy dla psa drewnianej konstrukcji"}
+          title={'Przewóz psiej budy z wykorzystaniem naszej auto lawety'}
         />
         <img
           className={
-            "xl:absolute xl:top-1/2 xl:-left-1/3 xl:hover:border-dark-orange xl:border-[.5rem] lg:border-white rounded xl:max-w-[35vw] lg:max-w-[50vw] sm:max-w-[75vw] h-auto hover:z-10 sm:hover:scale-105 hover:scale-[1.025] transition-all lg:mx-0 mx-auto md:mb-12 mb-4 hover:cursor-pointer"
+            "xl:absolute xl:top-1/2 xl:right-0 xl:hover:border-dark-orange xl:border-[.5rem] lg:border-white rounded xl:max-w-[30rem] lg:max-w-[50vw] sm:max-w-[75vw] h-auto hover:z-10 sm:hover:scale-105 hover:scale-[1.025] transition-all lg:mx-0 mx-auto md:mb-12 mb-4 hover:cursor-pointer"
           }
           src="./carTransport/car_transport1.webp"
-          alt="zdj"
+          alt={altAttributeText.text + ", przewóz ciągnika rolniczego, zabezpieczenie przedmiotu na lawecie"}
+          title={'Przewóz ciągnika rolniczego z wykorzystaniem naszej auto lawety'}
         />
       </div>
     </Container>

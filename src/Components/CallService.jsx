@@ -20,6 +20,7 @@ export const CallService = ({ contact }) => {
           className={
             "bg-gray-100 p-4 rounded md:text-3xl text-2xl text-dark-blue hover:bg-gray-200 transition animate-pulse"
           }
+          title={"Zadzwoń do nas już teraz!"}
         >
           <FontAwesomeIcon icon={faPhoneVolume} />
           Zadzwoń!

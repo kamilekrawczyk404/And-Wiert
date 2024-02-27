@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
 export const SlideDownIndicator = ({ handleScroll }) => {
+   //alt, keywords, footer year from new Dates
   return (
     <div
       className={
@@ -13,6 +14,7 @@ export const SlideDownIndicator = ({ handleScroll }) => {
         className={
           "absolute top-1/2 left-1/2 -translate-x-1/2 md:-translate-y-1/2 -translate-y-[100%] bg-light-orange w-[3rem] aspect-square rounded-full hover:bg-dark-orange transition"
         }
+        title={"Przewiń w dół"}
       >
         <FontAwesomeIcon
           icon={faAnglesDown}

@@ -39,8 +39,9 @@ export const Counter = ({ achievement }) => {
   return (
     <div
       className={
-        "flex w-full flex-row items-center lg:gap-14 md:gap-12 gap-8 lg:p-6 p-4 bg-white shadow-xl [&>div]:hover:scale-105 rounded"
+        "flex w-full flex-row items-center lg:gap-14 md:gap-12 gap-8 lg:p-6 p-4 bg-white shadow-xl [&>div]:hover:scale-105 rounded hover:cursor-pointer"
       }
+      title={achievement.title}
     >
       <div
         className={

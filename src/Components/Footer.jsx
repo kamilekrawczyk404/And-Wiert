@@ -16,10 +16,10 @@ export const Footer = ({ contact, links, handleScroll }) => {
               And-Wiert
             </h1>
             <div>
-              <p>Studnie głębinowe</p>
-              <p>Ciężkowice 33-190 ul. Leśna 8</p>
-              <p>Tel: {contact.telephone}</p>
-              <p>E-mail: {contact.email}</p>
+              <h3 className={'sm:text-xl text-lg '}>Studnie głębinowe</h3>
+              {/*<p>Ciężkowice 33-190 ul. Leśna 8</p>*/}
+              <p className={'sm:text-base text-sm'}>Tel: {contact.telephone}</p>
+              <p className={'sm:text-base text-sm'}>E-mail: {contact.email}</p>
             </div>
           </section>
 
@@ -35,6 +35,7 @@ export const Footer = ({ contact, links, handleScroll }) => {
                 underlineColor={"bg-dark-orange"}
                 animated={true}
                 onClick={() => handleScroll(index)}
+                title={link.title}
               >
                 {link.title}
               </Anchor>
@@ -43,9 +44,9 @@ export const Footer = ({ contact, links, handleScroll }) => {
         </div>
 
         <div className={"text-gray-100 text-lg space-y-4"}>
-          <p>Znajdź nas:</p>
+          <h3>Znajdź nas:</h3>
           <div>
-            <Link className={"flex items-center justify-center"}>
+            <Link href={contact.facebook} title={"Odwiedź nas na Facebook'u"} className={"flex items-center justify-center"}>
               <FontAwesomeIcon icon={faFacebook} className={"text-2xl mr-1"} />
               Facebook
             </Link>
@@ -54,17 +55,17 @@ export const Footer = ({ contact, links, handleScroll }) => {
       </footer>
       <div
         className={
-          "flex md:flex-row flex-col  md:justify-between items-center border-t-[.1rem] border-gray-100 sm:py-4 py-2"
+          "flex md:flex-row flex-col md:justify-between items-center border-t-[.1rem] border-gray-100 sm:py-4 py-2"
         }
       >
         <div className={"flex items-center"}>
           <div className={"text-dark-orange"}>
-            Copyright © 2024 <span className={"text-gray-100"}>And-Wiert</span>
+            Copyright © <span>{new Date().getFullYear()}</span> <span className={"text-gray-100"}>And-Wiert</span>
           </div>
         </div>
         <div className={"text-dark-orange flex items-center"}>
           <span className={"mr-1"}>Realizacja -</span>
-          <Link href={"mailto:kamilekkrawczyk404@gmail.com"}>
+          <Link href={"mailto:kamilekkrawczyk404@gmail.com"} title={"Realizacja - Kamil Krawczyk"}>
             Kamil Krawczyk
           </Link>
         </div>

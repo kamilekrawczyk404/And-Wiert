@@ -38,6 +38,7 @@ export const Nav = ({
             ref={logoRef}
             className={"text-dark-blue text-3xl font-semibold"}
             onClick={() => handleScrollToTop()}
+            title={"And-Wiert"}
           >
             <FontAwesomeIcon icon={faDroplet} />
             <span className={"whitespace-nowrap"}>And-Wiert</span>
@@ -52,6 +53,7 @@ export const Nav = ({
                 key={index}
                 onClick={() => handleScroll(index)}
                 animated={true}
+                title={link.title}
               >
                 {link.title}
               </Anchor>
@@ -63,6 +65,7 @@ export const Nav = ({
             onClick={() => {
               setMenuClicked((prev) => !prev);
             }}
+            title={"Otwórz/zamknij menu"}
           >
             <FontAwesomeIcon icon={faBars} className={" text-dark-blue" + ""} />
           </button>
@@ -86,6 +89,7 @@ export const Nav = ({
                 setMenuClicked(false);
                 handleScroll(index);
               }}
+              title={link.title}
             >
               {link.title}
             </Anchor>

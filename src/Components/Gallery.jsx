@@ -5,7 +5,7 @@ import { forwardRef, useEffect, useRef } from "react";
 import "@splidejs/react-splide/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-export const Gallery = forwardRef(({ ...props }, ref) => {
+export const Gallery = forwardRef(({ altAttributeText,...props }, ref) => {
   const mainRef = useRef();
   const thumbsRef = useRef();
 
@@ -70,7 +70,7 @@ export const Gallery = forwardRef(({ ...props }, ref) => {
         <img
           className={"rounded-md"}
           src={`./gallery/${image}`}
-          alt={""}
+          alt={altAttributeText.text}
         />
       </SplideSlide>
     ));
@@ -84,7 +84,7 @@ export const Gallery = forwardRef(({ ...props }, ref) => {
       }
     >
       <Article
-        title={"Przykładowe realizacje"}
+        title={"Przykładowe realizacje studni głebinowych"}
         className={"items-center sm:gap-4 gap-2"}
       >
         <Splide
@@ -98,13 +98,13 @@ export const Gallery = forwardRef(({ ...props }, ref) => {
             <div className="splide__progress__bar bg-dark-blue h-[.5rem] rounded" />
           </div>
           <div className="splide__arrows absolute left-0 w-full flex items-center justify-between top-1/2 -translate-y-1/2">
-            <button className="splide__arrow--prev relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange  rounded-full flex items-center justify-center">
+            <button className="splide__arrow--prev relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange  rounded-full flex items-center justify-center" title={"Przewiń wstecz"}>
               <FontAwesomeIcon
                 icon={faAngleRight}
                 className={"text-2xl font-bold text-dark-blue"}
               />
-            </button>{" "}
-            <button className="splide__arrow--next relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange rounded-full flex items-center justify-center">
+            </button>
+            <button className="splide__arrow--next relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange rounded-full flex items-center justify-center" title={'Przewiń w przód'}>
               <FontAwesomeIcon
                 icon={faAngleRight}
                 className={"text-2xl font-bold text-dark-blue"}
