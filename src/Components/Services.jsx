@@ -3,7 +3,7 @@ import { Container } from "./Partials/Container.jsx";
 import { forwardRef, useLayoutEffect, useRef } from "react";
 import Animation from "../Classes/Animation.js";
 
-export const Services = forwardRef(({ altAttributeText,...props }, ref) => {
+export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
   const services = [
     { title: "Fachowe doradztwo" },
     { title: "Indywidualne podejście do każdego klienta" },
@@ -30,7 +30,6 @@ export const Services = forwardRef(({ altAttributeText,...props }, ref) => {
 
     observer.observe(imagesRef.current);
   }, []);
-  
 
   return (
     <Container
@@ -50,16 +49,15 @@ export const Services = forwardRef(({ altAttributeText,...props }, ref) => {
           className={
             "hover:border-dark-orange border-dark-blue border-[.5rem] absolute top-0 left-0 max-w-[18rem] block rounded transition-all h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
-          src="./zdj2.webp"
+          src="./gallery/zdj2.webp"
           alt={altAttributeText.text}
           title={"Przykładowa realizacja u klienta"}
-          
         />
         <img
           className={
             "translate-x-1/3 translate-y-[40%] border-[.5rem] transition-all border-white hover:border-dark-orange rounded max-w-[18rem] h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
-          src="./zdj1.webp"
+          src="./gallery/zdj1.webp"
           alt={altAttributeText.text}
           title={"Przykładowa realizacja u klienta"}
         />
