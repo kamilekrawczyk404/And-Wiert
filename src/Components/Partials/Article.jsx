@@ -8,6 +8,7 @@ export const Article = ({
   description = "",
   aspects = [],
   children,
+  darkTheme = false,
   className = "",
 }) => {
   const servicesRefs = useRef([]);
@@ -43,8 +44,9 @@ export const Article = ({
       <article className={"flex flex-col gap-4 justify-center " + className}>
         <h1
           className={
-            "text-dark-blue sm:text-4xl text-2xl font-bold " +
-            (header ? "block" : "hidden")
+            " sm:text-4xl text-2xl font-bold " +
+            (header ? "block" : "hidden") +
+            (darkTheme ? " text-gray-100" : " text-dark-blue")
           }
         >
           {header}

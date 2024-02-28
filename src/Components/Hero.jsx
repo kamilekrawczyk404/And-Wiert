@@ -6,7 +6,12 @@ import { Container } from "./Partials/Container.jsx";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Animation from "../Classes/Animation.js";
 
-export const Hero = ({ contact, userScrolled, handleScroll, altAttributeText }) => {
+export const Hero = ({
+  contact,
+  userScrolled,
+  handleScroll,
+  altAttributeText,
+}) => {
   const TIMEOUT = 10000;
   const images = ["main1.webp", "main2.webp", "main3.webp"];
 
@@ -53,12 +58,15 @@ export const Hero = ({ contact, userScrolled, handleScroll, altAttributeText }) 
           <img
             key={index}
             ref={(element) => (imagesRefs.current[index] = element)}
-            src={`./hero/${image}`}
+            src={`/hero/${image}`}
             className={
               "hero-image absolute top-0 left-0 h-full w-full " +
               (index === 0 ? "opacity-100" : "opacity-0")
             }
-            alt={altAttributeText + ", czysta kropla wody, czysta woda, błekitna woda, nieskazitelnie czysta woda"}
+            alt={
+              altAttributeText.text +
+              ", czysta kropla wody, czysta woda, błekitna woda, nieskazitelnie czysta woda"
+            }
           />
         ))}
         <div
@@ -90,14 +98,20 @@ export const Hero = ({ contact, userScrolled, handleScroll, altAttributeText }) 
                 "bg-dark-orange md:h-[5rem] h-[4rem] aspect-square flex items-center justify-center"
               }
             >
-              <Link href={`mailto:${contact.telephone}`} title={"Zadzwoń do nas!"}>
+              <Link
+                href={`mailto:${contact.telephone}`}
+                title={"Zadzwoń do nas!"}
+              >
                 <FontAwesomeIcon
                   icon={faPhoneVolume}
                   className={"text-dark-blue md:text-3xl text-2xl"}
                 />
               </Link>
             </div>
-            <Link href={`tel:+48${contact.telephone}`}  title={"Zadzwoń do nas!"}>
+            <Link
+              href={`tel:+48${contact.telephone}`}
+              title={"Zadzwoń do nas!"}
+            >
               <p
                 className={
                   "text-gray-100 md:text-3xl text-2xl whitespace-nowrap md:px-8 sm:px-4 px-2"
@@ -105,7 +119,11 @@ export const Hero = ({ contact, userScrolled, handleScroll, altAttributeText }) 
               >
                 {" "}
                 Zadzwoń do nas{" "}
-                <span className={"md:ml-6 sm:ml-4 ml-0 text-dark-orange font-semibold"}>
+                <span
+                  className={
+                    "md:ml-6 sm:ml-4 ml-0 text-dark-orange font-semibold"
+                  }
+                >
                   {contact.telephone}
                 </span>
               </p>
@@ -113,11 +131,7 @@ export const Hero = ({ contact, userScrolled, handleScroll, altAttributeText }) 
           </div>
         </div>
 
-        <div
-          className={
-            "relative md:left-6 left-4  -translate-y-1/2"
-          }
-        >
+        <div className={"relative md:left-6 left-4  -translate-y-1/2"}>
           <div
             className={
               "relative z-10 flex flex-col gap-4 bg-gradient-to-r from-gray-100 via-80% via-[rgba(255,255,255,0.9)] rounded p-4 w-full"
@@ -128,7 +142,7 @@ export const Hero = ({ contact, userScrolled, handleScroll, altAttributeText }) 
                 "text-dark-blue lg:text-5xl md:text-4xl text-3xl font-bold"
               }
             >
-              Studnie głębinowe<p className={'text-dark-orange'}>And-Wiert</p>
+              Studnie głębinowe<p className={"text-dark-orange"}>And-Wiert</p>
             </h1>
             <p
               className={

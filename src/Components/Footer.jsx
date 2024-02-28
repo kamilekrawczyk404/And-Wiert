@@ -11,15 +11,18 @@ export const Footer = ({ contact, links, handleScroll }) => {
       <footer className={"flex gap-8 justify-between py-8"}>
         <div className={"flex gap-16 text-gray-100"}>
           <section className={"space-y-4"}>
-            <h1 className={"text-gray-100 text-3xl font-bold"}>
+            <Link
+              className={"text-gray-100 text-3xl font-bold"}
+              href={"https://and-wiert.pl"}
+            >
               <FontAwesomeIcon icon={faDroplet} className={"mr-1"} />
               And-Wiert
-            </h1>
+            </Link>
             <div>
-              <h3 className={'sm:text-xl text-lg '}>Studnie głębinowe</h3>
+              <h3 className={"sm:text-xl text-lg "}>Studnie głębinowe</h3>
               {/*<p>Ciężkowice 33-190 ul. Leśna 8</p>*/}
-              <p className={'sm:text-base text-sm'}>Tel: {contact.telephone}</p>
-              <p className={'sm:text-base text-sm'}>E-mail: {contact.email}</p>
+              <p className={"sm:text-base text-sm"}>Tel: {contact.telephone}</p>
+              <p className={"sm:text-base text-sm"}>E-mail: {contact.email}</p>
             </div>
           </section>
 
@@ -46,7 +49,11 @@ export const Footer = ({ contact, links, handleScroll }) => {
         <div className={"text-gray-100 text-lg space-y-4"}>
           <h3>Znajdź nas:</h3>
           <div>
-            <Link href={contact.facebook} title={"Odwiedź nas na Facebook'u"} className={"flex items-center justify-center"}>
+            <Link
+              href={contact.facebook}
+              title={"Odwiedź nas na Facebook'u"}
+              className={"flex items-center justify-center"}
+            >
               <FontAwesomeIcon icon={faFacebook} className={"text-2xl mr-1"} />
               Facebook
             </Link>
@@ -60,12 +67,16 @@ export const Footer = ({ contact, links, handleScroll }) => {
       >
         <div className={"flex items-center"}>
           <div className={"text-dark-orange"}>
-            Copyright © <span>{new Date().getFullYear()}</span> <span className={"text-gray-100"}>And-Wiert</span>
+            Copyright © <span>{new Date().getFullYear()}</span>{" "}
+            <span className={"text-gray-100"}>And-Wiert</span>
           </div>
         </div>
         <div className={"text-dark-orange flex items-center"}>
           <span className={"mr-1"}>Realizacja -</span>
-          <Link href={"mailto:kamilekkrawczyk404@gmail.com"} title={"Realizacja - Kamil Krawczyk"}>
+          <Link
+            href={"mailto:kamilekkrawczyk404@gmail.com"}
+            title={"Realizacja - Kamil Krawczyk"}
+          >
             Kamil Krawczyk
           </Link>
         </div>

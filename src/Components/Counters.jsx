@@ -30,7 +30,7 @@ export const Counters = () => {
   ];
 
   return (
-    <GapContainer>
+    <GapContainer className={"sm:flex-row flex-col"}>
       {achievements.map((achievement, index) => (
         <Counter key={index} achievement={achievement} />
       ))}

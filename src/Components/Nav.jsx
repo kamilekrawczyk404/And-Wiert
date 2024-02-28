@@ -5,6 +5,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Animation from "../Classes/Animation.js";
 import { Container } from "./Partials/Container.jsx";
 import { Anchor } from "./Partials/Anchor.jsx";
+import { Link } from "./Partials/Link.jsx";
 
 export const Nav = ({
   contact,
@@ -34,15 +35,15 @@ export const Nav = ({
         <section
           className={"flex gap-16 text-lg lg:justify-start justify-between"}
         >
-          <Anchor
+          <Link
             ref={logoRef}
             className={"text-dark-blue text-3xl font-semibold"}
-            onClick={() => handleScrollToTop()}
+            href={"https://and-wiert.pl"}
             title={"And-Wiert"}
           >
             <FontAwesomeIcon icon={faDroplet} />
             <span className={"whitespace-nowrap"}>And-Wiert</span>
-          </Anchor>
+          </Link>
           <div
             className={
               "flex-row xl:gap-16 lg:gap-8 lg:flex hidden whitespace-nowrap"
@@ -71,7 +72,7 @@ export const Nav = ({
           </button>
         </section>
         <Container
-            paddings={menuClicked}
+          paddings={menuClicked}
           className={
             "absolute flex flex-col justify-center gap-8 text-2xl lg:hidden left-0 sm:top-[9rem] bg-white border-t-[.2rem] border-dark-blue transition-[width] z-20 p-0 " +
             (menuClicked ? "w-full " : "w-0  ") +
@@ -83,7 +84,10 @@ export const Nav = ({
           {links.map((link, index) => (
             <Anchor
               key={index}
-              className={"text-dark-blue text-semibold text-2xl w-fit " + (!menuClicked && "hidden")}
+              className={
+                "text-dark-blue text-semibold text-2xl w-fit " +
+                (!menuClicked && "hidden")
+              }
               animated={true}
               onClick={() => {
                 setMenuClicked(false);
