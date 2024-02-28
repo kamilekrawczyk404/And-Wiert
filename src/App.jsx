@@ -18,7 +18,7 @@ function App() {
 
   const contact = {
     telephone: "500327556",
-    email: "andrzejw520@interia.eu",
+    email: "studnie@and-wiert.pl",
     facebook: "https://www.facebook.com/andrzej.wolski.37201",
   };
 

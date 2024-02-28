@@ -8,7 +8,9 @@ import { Anchor } from "./Partials/Anchor.jsx";
 export const Footer = ({ contact, links, handleScroll }) => {
   return (
     <Container className={"bg-dark-blue"}>
-      <footer className={"flex gap-8 justify-between py-8"}>
+      <footer
+        className={"flex sm:flex-row flex-col gap-8 justify-between py-8"}
+      >
         <div className={"flex gap-16 text-gray-100"}>
           <section className={"space-y-4"}>
             <Link
@@ -47,12 +49,11 @@ export const Footer = ({ contact, links, handleScroll }) => {
         </div>
 
         <div className={"text-gray-100 text-lg space-y-4"}>
-          <h3>Znajdź nas:</h3>
           <div>
             <Link
               href={contact.facebook}
               title={"Odwiedź nas na Facebook'u"}
-              className={"flex items-center justify-center"}
+              className={"items-start self-start"}
             >
               <FontAwesomeIcon icon={faFacebook} className={"text-2xl mr-1"} />
               Facebook

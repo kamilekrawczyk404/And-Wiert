@@ -100,7 +100,7 @@ export const Hero = ({
             >
               <Link
                 href={`mailto:${contact.telephone}`}
-                title={"Zadzwoń do nas!"}
+                title={"Napisz do nas!"}
               >
                 <FontAwesomeIcon
                   icon={faPhoneVolume}
@@ -114,11 +114,10 @@ export const Hero = ({
             >
               <p
                 className={
-                  "text-gray-100 md:text-3xl text-2xl whitespace-nowrap md:px-8 sm:px-4 px-2"
+                  "text-gray-100 md:text-3xl sm:text-2xl text-xl whitespace-nowrap md:px-8 sm:px-4 px-2 flex sm:flex-row flex-col sm:p-0 p-2 justify-center items-center"
                 }
               >
-                {" "}
-                Zadzwoń do nas{" "}
+                <span>Zadzwoń do nas </span>
                 <span
                   className={
                     "md:ml-6 sm:ml-4 ml-0 text-dark-orange font-semibold"
@@ -131,7 +130,7 @@ export const Hero = ({
           </div>
         </div>
 
-        <div className={"relative md:left-6 left-4  -translate-y-1/2"}>
+        <div className={"relative md:left-6 left-4 -translate-y-1/2"}>
           <div
             className={
               "relative z-10 flex flex-col gap-4 bg-gradient-to-r from-gray-100 via-80% via-[rgba(255,255,255,0.9)] rounded p-4 w-full"

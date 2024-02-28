@@ -10,7 +10,7 @@ export const CallService = ({ contact }) => {
         "mt-4 lg:flex-row flex-col items-center justify-center md:gap-8 gap-4 self-center w-full"
       }
     >
-      <div className={"text-gray-100 md:text-4xl text-2xl whitespace-nowrap"}>
+      <div className={"text-gray-100 md:text-4xl text-2xl"}>
         Masz jakieś pytania?{" "}
         <span className={"text-dark-orange underline"}>Nie wahaj się!</span>
       </div>

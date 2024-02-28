@@ -16,14 +16,14 @@ export const NavContact = ({ contact }) => {
             icon={faPhoneVolume}
             className={"text-dark-orange text-xl"}
           />
-          <span>{contact.telephone}</span>
+          <span className={"sm:inline hidden"}>{contact.telephone}</span>
         </Link>
         <Link href={`mailto:${contact.email}`} title={"Napisz do nas mail'a!"}>
           <FontAwesomeIcon
             icon={faEnvelope}
             className={"text-dark-orange text-xl"}
           />
-          <span>{contact.email}</span>
+          <span className={"sm:inline hidden"}>{contact.email}</span>
         </Link>
       </div>
       <div className={"flex md:gap-8 gap-4 items-center justify-center"}>

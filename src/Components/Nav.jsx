@@ -76,8 +76,8 @@ export const Nav = ({
         <Container
           paddings={menuClicked}
           className={
-            "absolute flex flex-col justify-center gap-8 text-2xl lg:hidden left-0 sm:top-[9rem] bg-white border-t-[.2rem] border-dark-blue transition-[width] z-20 p-0 text-dark-blue " +
-            (menuClicked ? "w-full " : "w-0  ") +
+            "absolute flex flex-col justify-center gap-8 text-2xl lg:hidden left-0 sm:top-[9rem] bg-white border-t-[.2rem] border-dark-blue transition-all p-0 text-dark-blue " +
+            (menuClicked ? "w-full " : "w-0 ") +
             (userScrolled
               ? "md:top-[6rem] top-[5.5rem] md:h-[calc(100vh-3rem)] h-[calc(100vh-5rem)]"
               : "top-[8.5rem] h-[calc(100vh-8rem)]")
