@@ -68,7 +68,10 @@ export const Counter = ({ achievement }) => {
         <span className={"lg:text-4xl text-2xl text-dark-orange font-bold"}>
           {achievement?.percentage ? "%" : "+"}
         </span>
-        <p ref={magicElement} className={"md:text-base text-xs text-dark-blue"}>
+        <p
+          ref={magicElement}
+          className={"lg:text-lg md:text-base text-xs text-dark-blue"}
+        >
           {achievement.title}
         </p>
       </div>

@@ -82,9 +82,8 @@ export const WorkMap = forwardRef(({ contact }, ref) => {
         header={
           <>
             Nasze usługi wiercenia studni głębinowych świadczymy na terenie
-            całego
+            całego{" "}
             <span className={"text-dark-orange underline"}>
-              {" "}
               województwa małopolskiego
             </span>{" "}
             i{" "}
@@ -154,13 +153,15 @@ export const WorkMap = forwardRef(({ contact }, ref) => {
           <section
             ref={callRef}
             className={
-              "text-gray-100 flex flex-col gap-8 translate-x-12 opacity-0"
+              "text-gray-100 flex flex-col gap-8 sm:translate-x-12 translate-x-4 opacity-0"
             }
           >
             <p className={"lg:text-3xl text-xl"}></p>
-            <div className={"bg-gray-100 rounded p-4 space-y-4 lg:w-full"}>
-              <p className={"text-dark-blue"}>
-                Masz problem z dostępem do czystej wody pitnej?{" "}
+            <div className={"bg-gray-100 rounded p-4 space-y-3 lg:w-full"}>
+              <p className={"text-dark-blue sm:text-lg font-semibold"}>
+                Masz problem z dostępem do czystej wody pitnej?
+              </p>
+              <p className={"text-dark-blue sm:text-lg "}>
                 <span className={"underline"}>Nie czekaj dłużej!</span>{" "}
                 Skorzystaj z naszych profesjonalnych usług wiercenia studni
                 głębinowej i ciesz się świeżą wodą prosto spod ziemi.

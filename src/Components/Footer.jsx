@@ -19,7 +19,7 @@ export const Footer = ({ contact, links, handleScroll }) => {
               And-Wiert
             </Link>
             <div>
-              <h3 className={"sm:text-xl text-lg "}>Studnie głębinowe</h3>
+              <h2 className={"sm:text-xl text-lg"}>Studnie głębinowe</h2>
               {/*<p>Ciężkowice 33-190 ul. Leśna 8</p>*/}
               <p className={"sm:text-base text-sm"}>Tel: {contact.telephone}</p>
               <p className={"sm:text-base text-sm"}>E-mail: {contact.email}</p>
@@ -71,9 +71,10 @@ export const Footer = ({ contact, links, handleScroll }) => {
             <span className={"text-gray-100"}>And-Wiert</span>
           </div>
         </div>
-        <div className={"text-dark-orange flex items-center"}>
-          <span className={"mr-1"}>Realizacja -</span>
+        <div className={"flex items-center"}>
+          <span className={"text-gray-100 mr-1"}>Realizacja -</span>
           <Link
+            className={"text-dark-orange"}
             href={"mailto:kamilekkrawczyk404@gmail.com"}
             title={"Realizacja - Kamil Krawczyk"}
           >

@@ -12,7 +12,7 @@ export const Hero = ({
   handleScroll,
   altAttributeText,
 }) => {
-  const TIMEOUT = 10000;
+  const TIMEOUT = 5000;
   const images = ["main1.webp", "main2.webp", "main3.webp"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -146,7 +146,7 @@ export const Hero = ({
             </h1>
             <p
               className={
-                "text-gray-700 z-10 lg:text-xl md:text-lg sm:text-md text-sm lg:w-[80%] md:w-[90%] w-full"
+                "text-dark-blue z-10 lg:text-xl md:text-lg sm:text-md text-sm lg:w-[80%] md:w-[90%] w-full"
               }
             >
               Doświadczona firma, specjalizującą się w dostarczaniu

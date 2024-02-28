@@ -41,7 +41,11 @@ export const Article = ({
       >
         {title}
       </h1>
-      <article className={"flex flex-col gap-4 justify-center " + className}>
+      <article
+        className={
+          "flex flex-col gap-4 justify-center text-dark-blue " + className
+        }
+      >
         <h1
           className={
             " sm:text-4xl text-2xl font-bold " +
