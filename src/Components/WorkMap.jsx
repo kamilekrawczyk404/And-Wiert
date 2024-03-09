@@ -94,7 +94,7 @@ export const WorkMap = forwardRef(({ contact }, ref) => {
       >
         <div
           className={
-            "flex lg:flex-row flex-col gap-x-[10%] items-center justify-center self-end lg:mt-20 mt-10"
+            "flex lg:flex-row flex-col gap-x-[10%] items-center justify-center self-center lg:mt-20 mt-10"
           }
         >
           <svg

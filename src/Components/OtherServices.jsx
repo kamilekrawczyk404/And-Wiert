@@ -60,9 +60,9 @@ export const OtherServices = forwardRef(
         >
           <img
             className={
-              "xl:absolute xl:right-1/2 xl:top-[30%] xl:border-[.5rem] xl:border-dark-blue xl:hover:border-dark-orange xl:max-w-[25rem] xl:block hidden rounded h-auto hover:z-10 hover:scale-[1.025] transition-all hover:cursor-pointer"
+              "xl:absolute xl:right-1/2 xl:top-[30%] xl:border-[.5rem] xl:border-dark-blue xl:hover:border-dark-orange xl:max-w-[25vw] xl:block hidden rounded h-auto hover:z-10 hover:scale-[1.025] transition-all hover:cursor-pointer"
             }
-            src="./carTransport/car_transport2.webp"
+            src="./images/carTransport/car_transport2.webp"
             alt={
               altAttributeText.text +
               ", przewóz budy dla psa drewnianej konstrukcji"
@@ -71,9 +71,9 @@ export const OtherServices = forwardRef(
           />
           <img
             className={
-              "xl:absolute xl:top-1/2 xl:right-0 xl:hover:border-dark-orange xl:border-[.5rem] lg:border-white rounded xl:max-w-[30rem] lg:max-w-[50vw] sm:max-w-[75vw] h-auto hover:z-10 sm:hover:scale-105 hover:scale-[1.025] transition-all lg:mx-0 mx-auto md:mb-12 mb-4 hover:cursor-pointer"
+              "xl:absolute xl:top-1/2 xl:right-0 xl:hover:border-dark-orange xl:border-[.5rem] lg:border-white rounded xl:max-w-[30vw] lg:max-w-[50vw] sm:max-w-[75vw] h-auto hover:z-10 sm:hover:scale-105 hover:scale-[1.025] transition-all lg:mx-0 mx-auto md:mb-12 mb-4 hover:cursor-pointer"
             }
-            src="./carTransport/car_transport1.webp"
+            src="./images/carTransport/car_transport1.webp"
             alt={
               altAttributeText.text +
               ", przewóz ciągnika rolniczego, zabezpieczenie przedmiotu na lawecie"

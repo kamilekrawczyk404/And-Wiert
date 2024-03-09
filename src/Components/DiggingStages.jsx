@@ -74,7 +74,7 @@ export const DiggingStages = forwardRef(
     return (
       <Container
         ref={ref}
-        className={"relative xl:h-screen flex items-center"}
+        className={"relative xl:h-screen flex items-center justify-center"}
         {...props}
       >
         <Article title={"Etapy wykonywania studni głebinowej"}>
@@ -100,18 +100,20 @@ export const DiggingStages = forwardRef(
                     (active === index ? "rotate-90" : "rotate-0")
                   }
                 />
-                <h1 className={"md:text-xl text-lg font-bold"}>
+                <h2 className={"md:text-xl text-lg font-bold"}>
                   {stage.title}
-                </h1>
+                </h2>
               </button>
 
               <div
                 className={
-                  "flex items-start justify-around relative transition-all duration-[.75s] ease-in-out " +
+                  "flex items-center justify-around relative transition-all duration-[.75s] ease-in-out " +
                   (active === index
                     ? "xl:h-[50vh] h-[70vh] opacity-1 p-4 "
                     : "h-0 overflow-hidden opacity-0 p-0 ") +
-                  (index === 1 ? "flex-row mx-auto" : "flex-col lg:flex-row")
+                  (index === 1 || index === 0
+                    ? "flex-col mx-auto"
+                    : "flex-col lg:flex-row")
                 }
               >
                 <ul
@@ -127,14 +129,19 @@ export const DiggingStages = forwardRef(
 
                 {index !== 1 ? (
                   <img
-                    className={"rounded w-[30rem] h-auto"}
-                    src={`./diggingStages/stages${index + 1}.webp`}
+                    className={
+                      "rounded h-auto sm:w-[100vw] " +
+                      (index === 0
+                        ? "xl:w-[50vw] lg:w-[70vw] md:w-[80vw]"
+                        : " xl:w-[30vw] lg:w-[50vw] md:w-[60vw]")
+                    }
+                    src={`./images/diggingStages/stages${index + 1}.webp`}
                     alt={altAttributeText.text}
                   />
                 ) : (
                   <video
                     className={"xl:h-[48vh] h-[68vh] rounded"}
-                    src={`./diggingStages/stages${index + 1}.mp4`}
+                    src={`./images/diggingStages/stages${index + 1}.mp4`}
                     autoPlay={true}
                     muted={true}
                     loop={true}

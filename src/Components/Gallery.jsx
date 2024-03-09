@@ -17,6 +17,7 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
     "gallery2.webp",
     "gallery3.webp",
     "gallery4.webp",
+    "gallery5.webp",
     "zdj1.webp",
     "zdj2.webp",
   ];
@@ -24,7 +25,7 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
   const mainOptions = {
     type: "loop",
     drag: true,
-    gap: "2rem",
+    gap: "1rem",
     perPage: 3,
     perMove: 1,
     autoplay: true,
@@ -34,6 +35,7 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
     rewindSpeed: 800,
     rewind: true,
     contain: true,
+    center: true,
     width: "auto",
     height: "auto",
     breakpoints: {
@@ -68,10 +70,15 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
 
   const renderImages = () => {
     return images.map((image, key) => (
-      <SplideSlide key={key} className={"rounded-md overflow-hidden"}>
+      <SplideSlide
+        key={key}
+        className={
+          "rounded-md overflow-hidden flex justify-center items-center"
+        }
+      >
         <img
           className={"rounded-md"}
-          src={`./gallery/${image}`}
+          src={`./images/gallery/${image}`}
           alt={altAttributeText.text}
         />
       </SplideSlide>
@@ -87,7 +94,7 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
     >
       <Article
         title={"Przykładowe realizacje studni głebinowych"}
-        className={"items-center sm:gap-4 gap-2"}
+        className={"items-center sm:gap-2 gap-1"}
       >
         <Splide
           ref={mainRef}

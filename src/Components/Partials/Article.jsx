@@ -34,19 +34,19 @@ export const Article = ({
         "relative flex flex-col justify-center text-gray-700 lg:py-16 py-8"
       }
     >
-      <h1
+      <h2
         className={
           "text-dark-orange font-semibold sm:text-2xl text-lg underline mb-2"
         }
       >
         {title}
-      </h1>
+      </h2>
       <article
         className={
           "flex flex-col gap-4 justify-center text-dark-blue " + className
         }
       >
-        <h1
+        <h3
           className={
             " sm:text-4xl text-2xl font-bold " +
             (header ? "block" : "hidden") +
@@ -54,7 +54,7 @@ export const Article = ({
           }
         >
           {header}
-        </h1>
+        </h3>
         <p className={description ? "block" : "hidden"}>{description}</p>
         <div
           ref={containerRef}

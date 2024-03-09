@@ -47,17 +47,17 @@ export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
       >
         <img
           className={
-            "hover:border-dark-orange border-dark-blue border-[.5rem] absolute top-0 left-0 max-w-[18rem] block rounded transition-all h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
+            "hover:border-dark-orange border-dark-blue border-[.5rem] absolute top-0 left-0 max-w-[18vw] block rounded transition-all h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
-          src="./gallery/zdj2.webp"
+          src="./images/gallery/zdj2.webp"
           alt={altAttributeText.text}
           title={"Przykładowa realizacja u klienta"}
         />
         <img
           className={
-            "translate-x-1/3 translate-y-[40%] border-[.5rem] transition-all border-white hover:border-dark-orange rounded max-w-[18rem] h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
+            "translate-x-1/3 translate-y-[40%] border-[.5rem] transition-all border-white hover:border-dark-orange rounded max-w-[18vw] h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
-          src="./gallery/zdj1.webp"
+          src="./images/gallery/zdj1.webp"
           alt={altAttributeText.text}
           title={"Przykładowa realizacja u klienta"}
         />

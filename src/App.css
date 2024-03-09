@@ -3,7 +3,7 @@ html {
 }
 .main-bg-contain::before, .main-bg-cover::before {
     content: '';
-    background: url("../public/hero/main1.jpg") no-repeat;
+    background: url("../public/images/hero/main1.jpg") no-repeat;
     display: block;
     position: absolute;
     top: 0;
