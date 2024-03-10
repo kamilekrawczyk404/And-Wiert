@@ -1,11 +1,14 @@
 import { Article } from "./Partials/Article.jsx";
 import { Container } from "./Partials/Container.jsx";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useContext, useEffect, useRef } from "react";
 import "@splidejs/react-splide/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
+import { ComponentContext } from "../Providers/ComponentContext.jsx";
+export const Gallery = () => {
+  const { pageRefs, alternativeText } = useContext(ComponentContext);
+
   const mainRef = useRef();
   const thumbsRef = useRef();
 
@@ -42,14 +45,10 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
       640: {
         perPage: 1,
         perMove: 1,
-        width: "auto",
-        height: "60vh",
       },
       1028: {
         perPage: 2,
         perMove: 1,
-        width: "auto",
-        height: "50vh",
         gap: "2rem",
       },
     },
@@ -79,7 +78,7 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
         <img
           className={"rounded-md"}
           src={`./images/gallery/${image}`}
-          alt={altAttributeText.text}
+          alt={alternativeText.text}
         />
       </SplideSlide>
     ));
@@ -87,14 +86,13 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
 
   return (
     <Container
-      ref={ref}
-      className={
-        "relative lg:max-h-screen h-auto xl:flex items-center justify-center"
-      }
+      asLayoutComponent={true}
+      ref={(element) => pageRefs.current.push(element)}
+      className={"relative xl:flex items-center justify-center"}
     >
       <Article
         title={"Przykładowe realizacje studni głebinowych"}
-        className={"items-center sm:gap-2 gap-1"}
+        className={"justify-center items-center sm:gap-2 gap-1"}
       >
         <Splide
           ref={mainRef}
@@ -140,4 +138,4 @@ export const Gallery = forwardRef(({ altAttributeText, ...props }, ref) => {
       </Article>
     </Container>
   );
-});
+};

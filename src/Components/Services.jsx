@@ -1,9 +1,13 @@
 import { Article } from "./Partials/Article.jsx";
 import { Container } from "./Partials/Container.jsx";
-import { forwardRef, useLayoutEffect, useRef } from "react";
+import { forwardRef, useContext, useLayoutEffect, useRef } from "react";
 import Animation from "../Classes/Animation.js";
+import { ComponentContext } from "../Providers/ComponentContext.jsx";
 
-export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
+export const Services = () => {
+  const { pageRefs, alternativeText } = useContext(ComponentContext);
+  const imagesRef = useRef(null);
+
   const services = [
     { title: "Fachowe doradztwo" },
     { title: "Indywidualne podejście do każdego klienta" },
@@ -14,8 +18,6 @@ export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
     { title: "Czyszczenie i serwis studni" },
     { title: "Wykonanie przyłącza wodociągowego do budynku" },
   ];
-
-  const imagesRef = useRef(null);
 
   useLayoutEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -33,11 +35,10 @@ export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
 
   return (
     <Container
-      ref={ref}
+      ref={(element) => pageRefs.current.push(element)}
       className={
         "relative xl:h-screen flex lg:flex-row flex-col items-center justify-between lg:gap-[15%] xl:gap-[20%]"
       }
-      {...props}
     >
       <aside
         ref={imagesRef}
@@ -50,7 +51,7 @@ export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
             "hover:border-dark-orange border-dark-blue border-[.5rem] absolute top-0 left-0 max-w-[18vw] block rounded transition-all h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
           src="./images/gallery/zdj2.webp"
-          alt={altAttributeText.text}
+          alt={alternativeText.text}
           title={"Przykładowa realizacja u klienta"}
         />
         <img
@@ -58,7 +59,7 @@ export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
             "translate-x-1/3 translate-y-[40%] border-[.5rem] transition-all border-white hover:border-dark-orange rounded max-w-[18vw] h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
           src="./images/gallery/zdj1.webp"
-          alt={altAttributeText.text}
+          alt={alternativeText.text}
           title={"Przykładowa realizacja u klienta"}
         />
       </aside>
@@ -74,4 +75,4 @@ export const Services = forwardRef(({ altAttributeText, ...props }, ref) => {
       />
     </Container>
   );
-});
+};

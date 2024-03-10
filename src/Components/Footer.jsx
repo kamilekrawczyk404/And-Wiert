@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDroplet, faSadTear } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { Anchor } from "./Partials/Anchor.jsx";
+import { useContext } from "react";
+import { ComponentContext } from "../Providers/ComponentContext.jsx";
 
-export const Footer = ({ contact, links, handleScroll }) => {
+export const Footer = () => {
+  const { contactDetails, pageLinks, scrollToTheElement } =
+    useContext(ComponentContext);
   return (
     <Container className={"bg-dark-blue"}>
       <footer
@@ -22,9 +26,12 @@ export const Footer = ({ contact, links, handleScroll }) => {
             </Link>
             <div>
               <h2 className={"sm:text-xl text-lg"}>Studnie głębinowe</h2>
-              {/*<p>Ciężkowice 33-190 ul. Leśna 8</p>*/}
-              <p className={"sm:text-base text-sm"}>Tel: {contact.telephone}</p>
-              <p className={"sm:text-base text-sm"}>E-mail: {contact.email}</p>
+              <p className={"sm:text-base text-sm"}>
+                Tel: {contactDetails.telephone}
+              </p>
+              <p className={"sm:text-base text-sm"}>
+                E-mail: {contactDetails.email}
+              </p>
             </div>
           </section>
 
@@ -33,13 +40,13 @@ export const Footer = ({ contact, links, handleScroll }) => {
               "md:flex hidden flex-col items-start justify-between text-lg text-gray-100"
             }
           >
-            {links.map((link, index) => (
+            {pageLinks.map((link, index) => (
               <Anchor
                 key={index}
                 className={"transition hover:text-dark-orange"}
                 underlineColor={"bg-dark-orange"}
                 animated={true}
-                onClick={() => handleScroll(index)}
+                onClick={() => scrollToTheElement(index)}
                 title={link.title}
               >
                 {link.title}
@@ -51,7 +58,7 @@ export const Footer = ({ contact, links, handleScroll }) => {
         <div className={"text-gray-100 text-lg space-y-4"}>
           <div>
             <Link
-              href={contact.facebook}
+              href={contactDetails.facebook}
               title={"Odwiedź nas na Facebook'u"}
               className={"items-start self-start"}
             >

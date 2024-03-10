@@ -1,11 +1,13 @@
-import React, { forwardRef, useLayoutEffect, useRef } from "react";
+import React, { forwardRef, useContext, useLayoutEffect, useRef } from "react";
 import tailwindConfig from "../../tailwind.config.js";
 import { Link } from "./Partials/Link.jsx";
 import { Container } from "./Partials/Container.jsx";
 import { Article } from "./Partials/Article.jsx";
 import Animation from "../Classes/Animation.js";
+import { ComponentContext } from "../Providers/ComponentContext.jsx";
 
-export const WorkMap = forwardRef(({ contact }, ref) => {
+export const WorkMap = () => {
+  const { pageRefs, contactDetails } = useContext(ComponentContext);
   const defaultColors = tailwindConfig.theme.extend.colors;
 
   const props = {
@@ -73,8 +75,9 @@ export const WorkMap = forwardRef(({ contact }, ref) => {
 
   return (
     <Container
-      ref={ref}
-      className={"relative lg:h-screen bg-dark-blue flex justify-center"}
+      asLayoutComponent={true}
+      ref={(element) => pageRefs.current.push(element)}
+      className={"relative bg-dark-blue flex justify-center"}
     >
       <Article
         title={"Gdzie wykonujemy studnie głebinowe?"}
@@ -167,7 +170,7 @@ export const WorkMap = forwardRef(({ contact }, ref) => {
                 głębinowej i ciesz się świeżą wodą prosto spod ziemi.
               </p>
               <Link
-                href={`tel:+48${contact.telephone}`}
+                href={`tel:+48${contactDetails.telephone}`}
                 className={
                   "text-dark-blue p-2 rounded bg-light-orange text-2xl sm:w-1/2 w-full mx-auto hover:bg-dark-orange transition"
                 }
@@ -180,4 +183,4 @@ export const WorkMap = forwardRef(({ contact }, ref) => {
       </Article>
     </Container>
   );
-});
+};

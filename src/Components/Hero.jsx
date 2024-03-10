@@ -3,20 +3,24 @@ import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "./Partials/Link.jsx";
 import { SlideDownIndicator } from "./Partials/SlideDownIndicator.jsx";
 import { Container } from "./Partials/Container.jsx";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import Animation from "../Classes/Animation.js";
+import { ComponentContext } from "../Providers/ComponentContext.jsx";
 
-export const Hero = ({
-  contact,
-  userScrolled,
-  handleScroll,
-  altAttributeText,
-}) => {
+export const Hero = () => {
+  const { contactDetails, userScrolled, scrollToTheElement, alternativeText } =
+    useContext(ComponentContext);
+
   const TIMEOUT = 5000;
   const images = ["main1.webp", "main2.webp", "main3.webp"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const imagesRefs = useRef([]);
   const containerRef = useRef(null);
 
@@ -45,9 +49,7 @@ export const Hero = ({
 
   return (
     <main
-      className={
-        "relative sm:h-[calc(100vh-9rem)] h-[calc(100vh-8rem)] overflow-hidden w-full"
-      }
+      className={"relative sm:h-[calc(100vh-9rem)] h-[calc(100vh-8rem)] w-full"}
     >
       <div
         className={
@@ -64,7 +66,7 @@ export const Hero = ({
               (index === 0 ? "opacity-100" : "opacity-0")
             }
             alt={
-              altAttributeText.text +
+              alternativeText.text +
               ", czysta kropla wody, czysta woda, błekitna woda, nieskazitelnie czysta woda"
             }
           />
@@ -99,7 +101,7 @@ export const Hero = ({
               }
             >
               <Link
-                href={`mailto:${contact.telephone}`}
+                href={`mailto:${contactDetails.telephone}`}
                 title={"Napisz do nas!"}
               >
                 <FontAwesomeIcon
@@ -109,7 +111,7 @@ export const Hero = ({
               </Link>
             </div>
             <Link
-              href={`tel:+48${contact.telephone}`}
+              href={`tel:+48${contactDetails.telephone}`}
               title={"Zadzwoń do nas!"}
             >
               <p
@@ -123,7 +125,7 @@ export const Hero = ({
                     "md:ml-6 sm:ml-4 ml-0 text-dark-orange font-semibold"
                   }
                 >
-                  {contact.telephone}
+                  {contactDetails.telephone}
                 </span>
               </p>
             </Link>
@@ -154,7 +156,9 @@ export const Hero = ({
           </div>
         </div>
       </Container>
-      {!userScrolled && <SlideDownIndicator handleScroll={handleScroll} />}
+      {!userScrolled && (
+        <SlideDownIndicator handleScroll={scrollToTheElement} />
+      )}
     </main>
   );
 };

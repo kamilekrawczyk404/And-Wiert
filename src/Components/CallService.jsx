@@ -2,8 +2,11 @@ import { GapContainer } from "./Partials/GapContainer.jsx";
 import { Link } from "./Partials/Link.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { ComponentContext } from "../Providers/ComponentContext.jsx";
 
-export const CallService = ({ contact }) => {
+export const CallService = () => {
+  const { contactDetails } = useContext(ComponentContext);
   return (
     <GapContainer
       className={
@@ -15,7 +18,7 @@ export const CallService = ({ contact }) => {
         <span className={"text-dark-orange underline"}>Nie wahaj się!</span>
       </div>
       <Link
-        href={`tel:+48${contact.telephone}`}
+        href={`tel:+48${contactDetails.telephone}`}
         className={
           "bg-gray-100 p-4 rounded md:text-3xl text-2xl text-dark-blue hover:bg-gray-200 transition animate-pulse"
         }
