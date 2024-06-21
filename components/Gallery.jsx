@@ -8,6 +8,7 @@ import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import { Container } from "./Container";
 import { ArticleSection } from "./ArticleSection";
 import { motion } from "framer-motion";
+import { Icon } from "./Icon";
 
 export const Gallery = () => {
   const { alt, motionVariants } = useContext(SiteDetailsContext);
@@ -112,8 +113,7 @@ export const Gallery = () => {
               className="splide__arrow--prev relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange  rounded-full flex items-center justify-center"
               title={"Przewiń wstecz"}
             >
-              <FontAwesomeIcon
-                icon={faAngleRight}
+              <Icon.AnglesRight
                 className={"text-2xl font-bold text-dark-blue"}
               />
             </button>

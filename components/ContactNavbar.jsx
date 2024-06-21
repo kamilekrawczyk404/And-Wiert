@@ -9,7 +9,10 @@ export const ContactNavbar = () => {
         "bg-dark-blue flex justify-between py-4 text-white min-h-[3.5rem]"
       }
     >
-      <ContactList className={"text-white bg-dark-blue md:gap-8 gap-4"} />
+      <ContactList
+        className={"text-white bg-dark-blue md:gap-8 gap-4"}
+        iconsTextStyling={"sm:inline hidden"}
+      />
       <SocialsList className={"text-white bg-dark-blue"} />
     </Container>
   );

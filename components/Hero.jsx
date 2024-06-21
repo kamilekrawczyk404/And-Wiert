@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
+import { Icon } from "./Icon";
 
 const Hero = ({ currentIndex }) => {
   const heroTexts = [
@@ -13,7 +14,7 @@ const Hero = ({ currentIndex }) => {
     "Zapewnij sobie dostęp do naturalnej wody ze sprawdzonych źródeł – nasze nowoczesne metody wiercenia studni głębinowych gwarantują satysfakcję i bezpieczeństwo!",
   ];
 
-  const { contactDetails } = useContext(SiteDetailsContext);
+  const { contact } = useContext(SiteDetailsContext);
   const barsWidth = "lg:w-32 md:w-28 w-20";
   const barsHeight = "lg:h-32 md:h-28 h-20";
 
@@ -87,19 +88,15 @@ const Hero = ({ currentIndex }) => {
           <div
             className={`w-fit justify-self-start bg-dark-orange aspect-square flex items-center justify-center ${barsHeight} `}
           >
-            <Link
-              href={`mailto:${contactDetails.telephone}`}
-              title={"Zadzwoń do nas!"}
-            >
-              <FontAwesomeIcon
-                icon={faPhoneVolume}
+            <Link href={contact.email.href} title={"Zadzwoń do nas!"}>
+              <Icon.RingingPhone
                 className={"text-dark-blue lg:text-4xl md:text-3xl text-2xl"}
               />
             </Link>
           </div>
 
           <Link
-            href={`tel:+48${contactDetails.telephone}`}
+            href={contact.phone.href}
             title={"Zadzwoń do nas!"}
             className={
               "h-full mx-auto bg-dark-orange text-dark-blue md:text-3xl sm:text-2xl text-xl md:px-8 sm:px-4 px-2 flex sm:p-0 justify-center items-center whitespace-nowrap gap-2"
@@ -107,7 +104,7 @@ const Hero = ({ currentIndex }) => {
           >
             <span>Zadzwoń do nas</span>
             <span className={"bg-gray-100 p-2 rounded-sm font-semibold w-full"}>
-              {contactDetails.telephone}
+              {contact.phone.value}
             </span>
           </Link>
         </div>

@@ -15,6 +15,12 @@ const StaggerList = ({
         staggerChildren: 0.25,
       },
     },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
   };
 
   const itemVariant = {
@@ -26,6 +32,10 @@ const StaggerList = ({
       opacity: 1,
       x: 0,
     },
+    exit: {
+      opacity: 0,
+      x: -10,
+    },
   };
 
   return (
@@ -35,6 +45,7 @@ const StaggerList = ({
       initial={"hidden"}
       animate={inView ? "" : "show"}
       whileInView={inView ? "show" : ""}
+      exit={"exit"}
       className={className}
     >
       {items.map((item, key) => (

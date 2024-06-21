@@ -15,7 +15,7 @@ export const NavbarLink = ({ href = "", title = "", className = "" }) => {
     <Link
       href={href}
       className={
-        "relative font-medium flex items-center gap-2 hover:cursor-pointer " +
+        "relative font-medium flex items-center gap-2 hover:cursor-pointer w-fit py-[0.125rem] " +
         (isActive ? "[&>span]:w-full " : "[&>span]:hover:w-full ") +
         className
       }
@@ -23,7 +23,7 @@ export const NavbarLink = ({ href = "", title = "", className = "" }) => {
       {title}
       <span
         className={
-          "absolute rounded-md bottom-[0.25rem] left-1/2 transform -translate-x-1/2 w-0 h-[.2rem] transition-[width] bg-dark-orange"
+          "absolute rounded-md bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[.25rem] transition-[width] bg-dark-orange"
         }
       ></span>
     </Link>

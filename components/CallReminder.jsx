@@ -5,9 +5,10 @@ import { Container } from "./Container";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Icon } from "./Icon";
 
 export const CallReminder = () => {
-  const { contactDetails, motionVariants } = useContext(SiteDetailsContext);
+  const { contact, motionVariants } = useContext(SiteDetailsContext);
   return (
     <Container
       className={
@@ -34,14 +35,14 @@ export const CallReminder = () => {
         whileHover={{ scale: 1.05 }}
       >
         <Link
-          href={`tel:+48${contactDetails.telephone}`}
+          href={`tel:+48${contact.phone.value}`}
           className={
             "bg-light-orange p-4 rounded md:text-3xl text-2xl text-dark-blue hover:bg-dark-orange transition "
           }
           title={"Zadzwoń do nas już teraz!"}
         >
           <span className={"space-x-4 inline-block"}>
-            <FontAwesomeIcon icon={faPhoneVolume} />
+            <Icon.RingingPhone />
             <span>Zadzwoń!</span>
           </span>
         </Link>
