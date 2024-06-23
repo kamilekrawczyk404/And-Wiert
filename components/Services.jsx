@@ -2,6 +2,7 @@ import React from "react";
 import { ArticleSection } from "./ArticleSection";
 import { Container } from "./Container";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Services = () => {
   const services = [
@@ -38,21 +39,32 @@ const Services = () => {
           "xl:w-1/2 w-full xl:-translate-y-[15%] self-center translate-y-0 xl:block hidden justify-around"
         }
       >
-        <img
+        <div
           className={
-            "hover:border-dark-orange border-dark-blue border-[.5rem] absolute top-0 left-0 max-w-[18vw] block rounded transition-all h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
+            "hover:border-dark-orange border-dark-blue border-[.5rem] absolute top-0 left-0 w-[18vw] h-[50vh] block rounded transition-all hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
-          src="/images/gallery/zdj2.webp"
-          // alt={alternativeText.text}
-          title={"Przykładowa realizacja u klienta"}
-        />
-        <img
+        >
+          <Image
+            src={"/images/gallery/zdj2.webp"}
+            alt={""}
+            layout={"fill"}
+            objectFit={"cover"}
+            title={"Przykładowa realizacja u klienta"}
+          />
+        </div>
+        <div
           className={
-            "translate-x-1/3 translate-y-[40%] border-[.5rem] transition-all border-white hover:border-dark-orange rounded max-w-[18vw] h-auto hover:z-20 hover:scale-105 hover:cursor-pointer"
+            "translate-x-1/3 translate-y-[20%] border-[.5rem] transition-all border-white hover:border-dark-orange rounded w-[18vw] h-[50vh] hover:z-20 hover:scale-105 hover:cursor-pointer"
           }
-          src="/images/gallery/zdj1.webp"
-          title={"Przykładowa realizacja u klienta"}
-        />
+        >
+          <Image
+            src={"/images/gallery/zdj1.webp"}
+            alt={""}
+            layout={"fill"}
+            objectFit={"cover"}
+            title={"Przykładowa realizacja u klienta"}
+          />
+        </div>
       </motion.aside>
       <ArticleSection
         title={"Czym się zajmujemy?"}

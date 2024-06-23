@@ -37,7 +37,7 @@ export const VoivodeshipMap = () => {
       },
     ],
     points: [
-      { cx: "265.212", cy: "410.853", region: "ml" },
+      { cx: "265.212", cy: "410.853", region: "ml", cityName: "Bobowa" },
       { cx: "162.917", cy: "359.276", region: "ml" },
       { cx: "251.055", cy: "365.125", region: "ml" },
       { cx: "226.891", cy: "415.993", region: "ml" },
@@ -56,8 +56,10 @@ export const VoivodeshipMap = () => {
     ],
   };
 
+  // const []
+
   return (
-    <Container className={"relative bg-dark-blue flex justify-center"}>
+    <Container className={"relative bg-dark-blue flex justify-center z-10"}>
       <ArticleSection
         title={"Gdzie wykonujemy studnie głebinowe?"}
         darkTheme={true}
@@ -119,18 +121,34 @@ export const VoivodeshipMap = () => {
               ></path>
             ))}
             {map.points.map((point, index) => (
-              <circle
-                key={index}
-                cx={point.cx}
-                cy={point.cy}
-                r={props.pointRadius}
-                fill={props.pointFill}
-                stroke={props.pointStrokeColor}
-                strokeWidth={props.regionStrokeWidth}
-                cursor="pointer"
-                data-region={point.region}
-                className={"transition duration-500"}
-              ></circle>
+              <>
+                <circle
+                  key={index}
+                  cx={point.cx}
+                  cy={point.cy}
+                  r={props.pointRadius}
+                  fill={props.pointFill}
+                  stroke={props.pointStrokeColor}
+                  strokeWidth={props.regionStrokeWidth}
+                  cursor="pointer"
+                  data-region={point.region}
+                  className={`transition duration-500 peer`}
+                />
+
+                <g className={`hidden peer-hover:block`}>
+                  <rect
+                    height="12"
+                    x={point.cx}
+                    y={point.cy - 10}
+                    width={point?.cityName?.length * 10}
+                    fill="white"
+                    className={""}
+                  />
+                  <text x={point.cx} y={point.cy} fill="black">
+                    {point.cityName}
+                  </text>
+                </g>
+              </>
             ))}
           </motion.svg>
           <motion.section

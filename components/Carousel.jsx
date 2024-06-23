@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Hero from "./Hero";
+import MoveIndicator from "./MoveIndicator";
 
 export const Carousel = () => {
   const INTERVAL_TIME = 5000;

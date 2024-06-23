@@ -12,7 +12,7 @@ export const CallReminder = () => {
   return (
     <Container
       className={
-        "lg:flex-row flex-col items-center justify-center md:gap-8 gap-6 self-center w-full bg-white flex py-12"
+        "lg:flex-row flex-col items-center justify-center md:gap-8 gap-6 self-center w-full bg-white flex py-12 z-10"
       }
     >
       <motion.div

@@ -11,35 +11,19 @@ import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import { Icon } from "./Icon";
 import StaggerList from "./StaggerList";
+import useUserScrolledPage from "../hooks/useUserScrolledPage";
 
 export const Navbar = () => {
   const { pageMap } = useContext(SiteDetailsContext);
-  const { scrollYProgress } = useScroll();
-
   const [menuOpen, setMenuOpen] = useState(false);
-  const [userScrolledUp, setUserScrolledUp] = useState(false);
-  const [userScrolledPage, setUserScrolledPage] = useState(false);
 
-  useEffect(() => {
-    scrollYProgress.on("change", (y) => {
-      setUserScrolledPage(y > 0);
-
-      // prevent a situation when user scrolls down and the window starts shrinking
-      setUserScrolledUp(
-        y * window.innerHeight < window.innerHeight - 25 &&
-          userScrolledPage &&
-          scrollYProgress.getVelocity() < 0,
-      );
-    });
-  }, [scrollYProgress, userScrolledPage]);
+  const { userScrolledPage, userScrolledUp } = useUserScrolledPage();
 
   const [mobileNavRef, animate] = useAnimate();
 
   useEffect(() => {
     if (menuOpen) {
       const openAnimation = async () => {
-        // await animate("", { display: "block" });
-
         await animate(
           mobileNavRef.current,
           {
@@ -49,20 +33,18 @@ export const Navbar = () => {
           { ease: "easeIn", transitionDuration: 0.25 },
         );
 
-        await animate("div", { opacity: 1 });
+        await animate("div", { opacity: 1, display: "flex" }, { delay: 0.15 });
       };
 
       openAnimation();
     } else {
       const closeAnimation = async () => {
-        await animate("div", { opacity: 0 });
-
-        // await animate("div", { display: "hidden" });
+        await animate("div", { opacity: 0, display: "hidden" });
 
         await animate(
           mobileNavRef.current,
           { width: "0vw", display: "hidden" },
-          { ease: "easeOut", transitionDuration: 0.25 },
+          { ease: "easeOut", transitionDuration: 0.25, delay: -0.15 },
         );
       };
 
@@ -70,12 +52,8 @@ export const Navbar = () => {
     }
   }, [menuOpen]);
 
-  // const showOrHideMenu = () => {
-  //   setMenuOpen((prev) => !prev);
-  // };
-
   return (
-    <nav className={"sticky top-0 left-0 flex flex-col z-10 shadow-lg w-full"}>
+    <nav className={"sticky top-0 left-0 flex flex-col z-50 shadow-lg w-full"}>
       <ContactNavbar />
       <MotionContainer
         className={"h-fit bg-white"}
@@ -143,30 +121,22 @@ export const Navbar = () => {
           ref={mobileNavRef}
           className={`absolute top-0 flex flex-col justify-center pb-36 gap-8 text-2xl lg:hidden left-0 bg-white border-dark-blue transition-all p-0 text-dark-blue h-screen`}
         >
-          <AnimatePresence>
-            {menuOpen && (
-              <StaggerList
-                inView={true}
-                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-4`}
-                items={pageMap.map((link, index) => (
-                  <NavbarLink
-                    href={link.href}
-                    key={index}
-                    title={link.title}
-                    className={"text-4xl"}
-                  />
-                ))}
+          <div
+            className={
+              "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-col justify-center gap-4 hidden"
+            }
+          >
+            {pageMap.map((link, index) => (
+              <NavbarLink
+                href={link.href}
+                key={index}
+                title={link.title}
+                className={"text-4xl"}
               />
-            )}
-          </AnimatePresence>
+            ))}
+          </div>
         </div>
       </MotionContainer>
     </nav>
   );
 };
-
-// {
-//     userScrolled && !menuClicked && (
-//         <SlideUpIndicator handleScrollToTop={scrollToTop}/>
-//     )
-// }

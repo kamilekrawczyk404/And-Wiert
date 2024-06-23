@@ -6,6 +6,7 @@ import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import { Icon } from "./Icon";
+import MoveIndicator from "./MoveIndicator";
 
 const Hero = ({ currentIndex }) => {
   const heroTexts = [
@@ -20,6 +21,7 @@ const Hero = ({ currentIndex }) => {
 
   return (
     <motion.div
+      id={"hero"}
       initial={{
         opacity: 0,
         x: "-10%",

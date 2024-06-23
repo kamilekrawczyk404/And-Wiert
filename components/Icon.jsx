@@ -8,12 +8,13 @@ import {
   faEnvelope,
   faHourglassHalf,
   faPhoneVolume,
+  faPaperPlane,
+  faLocationDot,
+  faAnglesDown,
+  faClock,
+  faBars,
+  faAnglesUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons/faLocationDot";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons/faPaperPlane";
-import { faAnglesDown } from "@fortawesome/free-solid-svg-icons/faAnglesDown";
-import { faClock } from "@fortawesome/free-solid-svg-icons/faClock";
-import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 
 export const Icon = {
   Phone: ({ className = "" }) => (
@@ -45,6 +46,9 @@ export const Icon = {
   ),
   AnglesRight: ({ className = "" }) => (
     <FontAwesomeIcon icon={faAnglesRight} className={className} />
+  ),
+  AnglesUp: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faAnglesUp} className={className} />
   ),
   HourGlassHalf: ({ className = "" }) => (
     <FontAwesomeIcon icon={faHourglassHalf} className={className} />

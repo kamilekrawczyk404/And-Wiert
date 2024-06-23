@@ -62,7 +62,7 @@ const Counter = ({ from, to, duration = 1, options }) => {
 
       <div
         className={
-          "transition flex md:flex-col md:gap-0 gap-2 md:ml-0 ml-1 w-full"
+          "transition flex md:flex-col md:gap-0 gap-2 md:ml-0 ml-1 w-full sm:items-start items-center"
         }
       >
         <div
