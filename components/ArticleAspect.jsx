@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { Icon } from "./Icon";
 
 const ArticleAspect = ({ title = "" }) => {
@@ -20,7 +18,7 @@ const ArticleAspect = ({ title = "" }) => {
     >
       <p
         className={
-          "flex gap-2 justify-start hover:cursor-pointer transition hover:-translate-x-[.5rem]"
+          "flex gap-2 justify-start transition hover:-translate-x-[-.5rem]"
         }
       >
         <Icon.AnglesRight

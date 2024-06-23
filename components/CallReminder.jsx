@@ -23,7 +23,7 @@ export const CallReminder = () => {
         className={"text-dark-blue md:text-4xl text-2xl space-x-2"}
       >
         <span>Masz jakieś pytania?</span>
-        <span className={"text-dark-orange underline"}>Nie wahaj się!</span>
+        <span className={"text-dark-orange"}>Nie wahaj się!</span>
       </motion.div>
 
       <motion.div

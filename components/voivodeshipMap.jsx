@@ -4,6 +4,7 @@ import tailwindConfig from "@/tailwind.config";
 import { Container } from "./Container";
 import { ArticleSection } from "./ArticleSection";
 import { motion } from "framer-motion";
+import City from "./City";
 
 export const VoivodeshipMap = () => {
   const defaultColors = tailwindConfig.theme?.extend?.colors;
@@ -37,26 +38,24 @@ export const VoivodeshipMap = () => {
       },
     ],
     points: [
-      { cx: "265.212", cy: "410.853", region: "ml", cityName: "Bobowa" },
-      { cx: "162.917", cy: "359.276", region: "ml" },
-      { cx: "251.055", cy: "365.125", region: "ml" },
-      { cx: "226.891", cy: "415.993", region: "ml" },
-      { cx: "170.073", cy: "434.346", region: "ml" },
-      { cx: "202.899", cy: "403.503", region: "ml" },
-      { cx: "247.134", cy: "404.798", region: "ml" },
-      { cx: "219.148", cy: "371.21", region: "ml" },
-      { cx: "352.265", cy: "423.848", region: "pd" },
-      { cx: "399.5", cy: "395.018", region: "pd" },
-      { cx: "315.361", cy: "406.48", region: "pd" },
-      { cx: "335.944", cy: "361.893", region: "pd" },
-      { cx: "308.626", cy: "291.712", region: "pd" },
-      { cx: "291.368", cy: "399.906", region: "pd" },
-      { cx: "286.376", cy: "362.406", region: "pd" },
-      { cx: "339.117", cy: "290.272", region: "pd" },
+      { cx: "162.917", cy: "359.276", region: "ml", cityName: "Kraków" },
+      { cx: "251.055", cy: "365.125", region: "ml", cityName: "Brzesko" },
+      { cx: "219.148", cy: "371.21", region: "ml", cityName: "Bochnia" },
+      { cx: "399.5", cy: "395.018", region: "pd", cityName: "Przemyśl" },
+      { cx: "335.944", cy: "361.893", region: "pd", cityName: "Rzeszów" },
+      { cx: "308.626", cy: "291.712", region: "pd", cityName: "Tarnobrzeg" },
+      { cx: "286.376", cy: "362.406", region: "pd", cityName: "Dębica" },
+      { cx: "339.117", cy: "290.272", region: "pd", cityName: "Stalowa Wola" },
+      { cx: "247.134", cy: "404.798", region: "ml", cityName: "Bobowa" },
+      { cx: "202.899", cy: "403.503", region: "ml", cityName: "Limanowa" },
+      { cx: "291.368", cy: "399.906", region: "pd", cityName: "Biecz" },
+      { cx: "265.212", cy: "410.853", region: "ml", cityName: "Gorlice" },
+      { cx: "226.891", cy: "415.993", region: "ml", cityName: "Nowy Sącz" },
+      { cx: "315.361", cy: "406.48", region: "pd", cityName: "Krosno" },
+      { cx: "170.073", cy: "434.346", region: "ml", cityName: "Nowy Targ" },
+      { cx: "352.265", cy: "423.848", region: "pd", cityName: "Sanok" },
     ],
   };
-
-  // const []
 
   return (
     <Container className={"relative bg-dark-blue flex justify-center z-10"}>
@@ -67,12 +66,10 @@ export const VoivodeshipMap = () => {
           <p>
             Nasze usługi wiercenia studni głębinowych świadczymy na terenie
             całego{" "}
-            <span className={"text-dark-orange underline"}>
+            <span className={"text-dark-orange"}>
               województwa małopolskiego
             </span>{" "}
-            i{" "}
-            <span className={"text-dark-orange underline"}>podkarpackiego</span>
-            .
+            i <span className={"text-dark-orange"}>podkarpackiego</span>.
           </p>
         }
       >
@@ -92,7 +89,7 @@ export const VoivodeshipMap = () => {
             style={{
               position: "relative",
             }}
-            className={"lg:w-[110%] md:w-[60%] sm:w-[80%] w-full"}
+            className={"xl:w-[130%] lg:w-[110%] sm:w-[80%] w-full"}
           >
             {map.regions.map((region, index) => (
               <path
@@ -121,36 +118,10 @@ export const VoivodeshipMap = () => {
               ></path>
             ))}
             {map.points.map((point, index) => (
-              <>
-                <circle
-                  key={index}
-                  cx={point.cx}
-                  cy={point.cy}
-                  r={props.pointRadius}
-                  fill={props.pointFill}
-                  stroke={props.pointStrokeColor}
-                  strokeWidth={props.regionStrokeWidth}
-                  cursor="pointer"
-                  data-region={point.region}
-                  className={`transition duration-500 peer`}
-                />
-
-                <g className={`hidden peer-hover:block`}>
-                  <rect
-                    height="12"
-                    x={point.cx}
-                    y={point.cy - 10}
-                    width={point?.cityName?.length * 10}
-                    fill="white"
-                    className={""}
-                  />
-                  <text x={point.cx} y={point.cy} fill="black">
-                    {point.cityName}
-                  </text>
-                </g>
-              </>
+              <City key={index} props={props} point={point} />
             ))}
           </motion.svg>
+
           <motion.section
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -160,7 +131,7 @@ export const VoivodeshipMap = () => {
           >
             <p className={"lg:text-3xl text-xl"}></p>
             <div className={"bg-gray-100 rounded p-4 space-y-3 lg:w-full"}>
-              <p className={"text-dark-blue sm:text-lg font-semibold"}>
+              <p className={"text-dark-blue sm:text-3xl font-semibold"}>
                 Masz problem z dostępem do czystej wody pitnej?
               </p>
               <p className={"text-dark-blue sm:text-lg "}>

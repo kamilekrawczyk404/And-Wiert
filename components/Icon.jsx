@@ -14,6 +14,9 @@ import {
   faClock,
   faBars,
   faAnglesUp,
+  faAnglesLeft,
+  faAngleLeft,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Icon = {
@@ -49,6 +52,12 @@ export const Icon = {
   ),
   AnglesUp: ({ className = "" }) => (
     <FontAwesomeIcon icon={faAnglesUp} className={className} />
+  ),
+  AngleLeft: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faAngleLeft} className={className} />
+  ),
+  AngleRight: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faAngleRight} className={className} />
   ),
   HourGlassHalf: ({ className = "" }) => (
     <FontAwesomeIcon icon={faHourglassHalf} className={className} />

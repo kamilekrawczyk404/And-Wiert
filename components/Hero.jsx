@@ -21,7 +21,6 @@ const Hero = ({ currentIndex }) => {
 
   return (
     <motion.div
-      id={"hero"}
       initial={{
         opacity: 0,
         x: "-10%",

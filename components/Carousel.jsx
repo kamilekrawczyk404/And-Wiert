@@ -34,7 +34,9 @@ export const Carousel = () => {
               duration: 0.25,
             }}
             src={`/images/hero/${imageNames[currentIndex]}`}
-            className={"left-0 top-0 bg-no-repeat bg-cover w-full h-full"}
+            className={
+              "absolute left-0 top-0 bg-no-repeat bg-cover w-full h-full"
+            }
           />
         </AnimatePresence>
 

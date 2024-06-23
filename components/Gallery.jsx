@@ -110,10 +110,10 @@ export const Gallery = () => {
           </div>
           <div className="splide__arrows absolute left-0 w-full flex items-center justify-between top-1/2 -translate-y-1/2">
             <button
-              className="splide__arrow--prev relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange  rounded-full flex items-center justify-center"
+              className="splide__arrow--prev relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange rounded-full flex items-center justify-center"
               title={"Przewiń wstecz"}
             >
-              <Icon.AnglesRight
+              <Icon.AngleRight
                 className={"text-2xl font-bold text-dark-blue"}
               />
             </button>
@@ -121,8 +121,7 @@ export const Gallery = () => {
               className="splide__arrow--next relative lg:w-[3rem] w-[2.5rem] aspect-square bg-light-orange hover:bg-dark-orange rounded-full flex items-center justify-center"
               title={"Przewiń w przód"}
             >
-              <FontAwesomeIcon
-                icon={faAngleRight}
+              <Icon.AngleRight
                 className={"text-2xl font-bold text-dark-blue"}
               />
             </button>

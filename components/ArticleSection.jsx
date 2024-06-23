@@ -8,9 +8,11 @@ export const ArticleSection = ({
   children,
   darkTheme = false,
   className = "",
+  ...props
 }) => {
   return (
     <section
+      {...props}
       className={
         "relative flex flex-col justify-center text-gray-700 lg:py-16 py-8"
       }

@@ -67,6 +67,7 @@ const Services = () => {
         </div>
       </motion.aside>
       <ArticleSection
+        id={"hero"}
         title={"Czym się zajmujemy?"}
         header={
           "Jesteśmy zespołem doświadczonych specjalistów, gotowych dostarczyć Państwu najwyższej jakości usług."
