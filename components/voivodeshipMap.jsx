@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import tailwindConfig from "@/tailwind.config";
 import { Container } from "./Container";
@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import City from "./City";
 
 export const VoivodeshipMap = () => {
+  const [currentShownCityIndex, setCurrentShownCityIndex] = useState(0);
+
   const defaultColors = tailwindConfig.theme?.extend?.colors;
 
   const props = {
@@ -56,6 +58,20 @@ export const VoivodeshipMap = () => {
       { cx: "352.265", cy: "423.848", region: "pd", cityName: "Sanok" },
     ],
   };
+
+  useEffect(() => {
+    const SHOWING_TIME = 2000;
+
+    const interval = setInterval(() => {
+      setCurrentShownCityIndex((prev) =>
+        map.points.length - 1 === prev ? 0 : prev + 1,
+      );
+    }, SHOWING_TIME);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentShownCityIndex]);
 
   return (
     <Container className={"relative bg-dark-blue flex justify-center z-10"}>
@@ -118,7 +134,12 @@ export const VoivodeshipMap = () => {
               ></path>
             ))}
             {map.points.map((point, index) => (
-              <City key={index} props={props} point={point} />
+              <City
+                key={index}
+                props={props}
+                point={point}
+                isShown={index === currentShownCityIndex}
+              />
             ))}
           </motion.svg>
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import StaggerList from "../components/StaggerList";
-import HorizontalLine from "../components/HorizontalLine";
+import PostList from "../components/PostList";
 
 const diggingStages = [
   {
@@ -10,7 +10,7 @@ const diggingStages = [
       "Zazwyczaj wiercone są na głębokość od kilkudziesięciu do kilkuset metrów, co pozwala na dotarcie do warstw wodonośnych, które są chronione przed zanieczyszczeniami powierzchniowymi. Woda z takich głębokości jest często bardzo czysta i ma stabilną jakość przez cały rok,",
       "Te szczegółowe badania pozwalają nam zidentyfikować warstwy wodonośne, określić rodzaj gruntu oraz uniknąć ewentualnych trudności podczas wiercenia.",
     ],
-    imageSrc: "terrainAnalyze.webp",
+    imageSrc: "/images/diggingStages/terrainAnalyze.webp",
   },
   {
     title: "Wiercenie studni głębinowej",
@@ -19,7 +19,7 @@ const diggingStages = [
       "Pracujemy zgodnie z najwyższymi standardami, dbając o ochronę środowiska i zapewniając bezpieczeństwo wykonawcze,",
       "Dbamy o to, aby studnia była wywiercona na odpowiednią głębokość, zapewniającą dostęp do zdatnej do spożycia wody.",
     ],
-    imageSrc: "wellDigging.mp4",
+    imageSrc: "/images/diggingStages/wellDigging.mp4",
   },
   {
     title: "Przyłącze wodociągowe",
@@ -28,14 +28,14 @@ const diggingStages = [
       "Zapewniamy kompleksową budowę instalacji wodociągowej, łącznie z pompami, zbiornikami i systemami uzdatniania wody,",
       "Po zakończeniu wiercenia studnię poddaje się testom wydajnościowym, które mają na celu określenie jej zdolności do dostarczania wody. Następnie instaluje się pompę oraz inne niezbędne wyposażenie, takie jak zbiorniki na wodę i systemy filtracyjne.",
     ],
-    imageSrc: "waterSupplyConnection.webp",
+    imageSrc: "/images/diggingStages/waterSupplyConnection.webp",
   },
   {
     title: "Naprawa i konserwacja studni",
     descriptions: [
       "Po zakończeniu prac, oferujemy usługi monitoringu oraz regularnej konserwacji, aby zapewnić długotrwałą i niezawodną eksploatację studni.",
     ],
-    imageSrc: "repairingAndConservation.webp",
+    imageSrc: "/images/diggingStages/repairingAndConservation.webp",
   },
 ];
 
@@ -59,85 +59,32 @@ export const blogPosts = [
     readingTime: "2min",
     description:
       "Wiercenie studni głębinowej to proces, który może wydawać się skomplikowany i pełen wyzwań, ale dla wielu osób jest to kluczowy krok w zapewnieniu sobie dostępu do czystej i niezawodnej wody. Niezależnie od tego, czy planujesz wiercić studnię na własnej posesji, czy chcesz zgłębić wiedzę na temat najnowszych technologii w tej dziedzinie, nasz dzisiejszy wpis dostarczy Ci niezbędnych informacji.",
-    imageSrc: "/images/gallery/gallery5.webp",
+    imageSrc: "/images/gallery/gallery6.webp",
+    imageAlt: "Zdjęcie główne posta - jak wiercimy studnie głebinowe",
     body: [
       {
         title: "Wstęp",
         content:
           "Wiercenie studni głębinowej to proces, który może wydawać się skomplikowany i pełen wyzwań, ale dla wielu osób jest to kluczowy krok w zapewnieniu sobie dostępu do czystej i niezawodnej wody. Niezależnie od tego, czy planujesz wiercić studnię na własnej posesji, czy chcesz zgłębić wiedzę na temat najnowszych technologii w tej dziedzinie, nasz dzisiejszy wpis dostarczy Ci niezbędnych informacji.",
-        imageSrc: "",
       },
       {
         title: "Czym są studnie głębinowe?",
         content:
           "Studnie głębinowe to ujęcia wody podziemnej, które sięgają znacznie głębiej niż tradycyjne studnie kopane. Zazwyczaj wiercone są na głębokość od kilkudziesięciu do kilkuset metrów, co pozwala na dotarcie do warstw wodonośnych, które są chronione przed zanieczyszczeniami powierzchniowymi. Woda z takich głębokości jest często bardzo czysta i ma stabilną jakość przez cały rok.",
-        imageSrc: "",
+        imageSrc: "/images/gallery/zdj2.webp",
+        imageAlt:
+          "Zdjęcie przedstawiające końcową fazę wykonywania studni głębinowej. Za pomocą odpowiednio dobranej pompy głębinowej jesteśmy w stanie wydobyć wodę z jej głęboko osadzoncyh złóż.",
       },
       {
         title: "Etapy wykonywania studni głębinowej",
-        content: diggingStages.map((stage, index) => (
-          <div
-            className={
-              "relative flex flex-col gap-4 my-4 w-full overflow-hidden"
-            }
-            key={index}
-          >
-            <h3 className={"text-3xl text-dark-orange"}>
-              {index + 1 + "# "}
-              {stage.title}
-            </h3>
-            <section
-              className={`relative flex md:flex-row flex-col-reverse gap-8 min-h-[25rem] md:p-8 p-0 w-full backdrop-filter ${
-                index % 2 === 0 && "flex-row-reverse"
-              }`}
-            >
-              <div
-                className={"relative md:w-1/2 w-full md:h-[30rem] h-[15rem]"}
-              >
-                {stage.imageSrc !== "wellDigging.mp4" ? (
-                  <Image
-                    fill
-                    className={"rounded h-[20rem] object-cover"}
-                    src={`/images/diggingStages/${stage.imageSrc}`}
-                    alt={stage.title}
-                    title={stage.title}
-                    priority={false}
-                  />
-                ) : (
-                  <video
-                    preload={"none"}
-                    className={"rounded h-full mx-auto"}
-                    src={`/images/diggingStages/${stage.imageSrc}`}
-                    autoPlay={true}
-                    muted={true}
-                    controls={true}
-                    title={
-                      "Wideo prezentujące przykładową realizacje wykonania studni głębinowej"
-                    }
-                  />
-                )}
-              </div>
-
-              <StaggerList
-                inView={true}
-                className={
-                  "md:w-1/2 w-full flex flex-col md:gap-4 gap-2 self-center"
-                }
-                items={stage.descriptions.map((description, index) => (
-                  <p
-                    key={index}
-                    className={
-                      "relative before:absolute before:left-0 before:top-2 before:w-2 before:aspect-square before:bg-dark-orange before:rounded indent-4"
-                    }
-                  >
-                    {description}
-                  </p>
-                ))}
-              />
-            </section>
-            <HorizontalLine />
-          </div>
-        )),
+        content: (
+          <PostList
+            aspects={diggingStages}
+            // items={diggingStages.map((stage, index) => (
+            //
+            // ))}
+          />
+        ),
       },
       {
         title: "Wyzwania i Uwagi",
@@ -152,8 +99,8 @@ export const blogPosts = [
     ],
   },
   {
-    id: "jak-wybrac-odpowiednia-lokalizacje-odwiertu",
-    title: "Jak wybrać odpowiednią lokalizację dla odwiertu",
+    id: "jak-wybrac-odpowiednia-lokalizacje-odwiertu-metoda-oporowa",
+    title: "Jak wybrać odpowiednią lokalizację dla odwiertu - metoda oporowa",
     tags: [
       "#StudnieGłębinowe",
       "#WiercenieStudni",
@@ -176,12 +123,14 @@ export const blogPosts = [
         title: "Wstęp",
         content:
           "Wykonanie studni głębinowej to inwestycja na lata, dlatego kluczowym etapem tego procesu jest znalezienie odpowiedniego miejsca na działce, gdzie występują zasoby wodne na odpowiedniej głębokości i w odpowiedniej ilości. Jedną z najbardziej skutecznych metod badania podłoża i identyfikacji najlepszych lokalizacji do wiercenia studni jest metoda oporowa, znana również jako metoda geofizyczna. W tym wpisie szczegółowo omówimy, jak działa metoda oporowa, jakie są jej zalety oraz jak przeprowadza się takie badania.",
-        imageSrc: "/images/diggingStages/terrainAnalyze.webp",
       },
       {
         title: "Czym jest metoda oporowa?",
         content:
           "Metoda oporowa polega na pomiarze oporu elektrycznego gruntu, który zależy od jego wilgotności i struktury geologicznej. Dzięki tej metodzie można określić, na jakiej głębokości znajdują się warstwy wodonośne. Woda, jako dobry przewodnik prądu elektrycznego, znacząco zmniejsza opór elektryczny gruntu, co pozwala na identyfikację miejsc, gdzie występują zasoby wodne.",
+        imageSrc: "/images/diggingStages/terrainAnalyze.webp",
+        imageAlt:
+          "Grafika przedstawiająca wynik metody oporowej. Kolorem czerwonym zostały zaznaczone obszary wodonośne, w obrębie których wykonujemy odwiert pod studnie głębinową.",
       },
       {
         title: "Jak działa metoda oporowa?",

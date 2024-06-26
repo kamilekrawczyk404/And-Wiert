@@ -15,7 +15,7 @@ export const Navbar = () => {
   const { pageMap } = useContext(SiteDetailsContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const { userScrolledPage, userScrolledUp } = useUserScrolledPage();
+  const { userScrolledUp } = useUserScrolledPage();
 
   const [mobileNavRef, animate] = useAnimate();
 
@@ -52,7 +52,6 @@ export const Navbar = () => {
 
   return (
     <motion.nav
-      // animate={{ position: userScrolledPage ? "sticky" : "absolute" }}
       variants={{
         scrollingDown: { y: "-100%" },
         scrollingUp: { y: 0 },
@@ -106,6 +105,7 @@ export const Navbar = () => {
           >
             {pageMap.map((link, index) => (
               <NavbarLink
+                onClick={() => setMenuOpen(false)}
                 href={link.href}
                 key={index}
                 title={link.title}

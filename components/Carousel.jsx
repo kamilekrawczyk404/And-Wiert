@@ -23,7 +23,7 @@ export const Carousel = () => {
 
   return (
     <div className={"relative h-[calc(100vh-8.5rem)] min-h-fit"}>
-      <div className={"h-[calc(100vh-8.5rem)]"}>
+      <div className={"relative h-[calc(100vh-8.5rem)] overflow-hidden"}>
         <AnimatePresence>
           <motion.img
             key={currentIndex}

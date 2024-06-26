@@ -24,13 +24,13 @@ const MoveIndicator = () => {
       className={`pointer-events-none flex z-20 ${
         userScrolledPage
           ? "sticky sm:bottom-4 bottom-2 mb-1 w-screen"
-          : "absolute left-1/2 -translate-x-1/2 bottom-[2rem] animate-bounce w-fit"
+          : "absolute left-1/2 -translate-x-1/2 bottom-[2rem] flex items-center justify-center"
       }`}
     >
       <button
         onClick={scroll}
-        className={`text-2xl text-dark-blue pointer-events-auto ${
-          userScrolledPage ? "ml-auto" : "self-center"
+        className={`text-2xl text-dark-blue pointer-events-auto  ${
+          userScrolledPage ? "ml-auto" : "animate-bounce"
         }`}
       >
         {userScrolledPage ? (

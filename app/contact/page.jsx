@@ -24,12 +24,12 @@ export default function Contact() {
                 poniższy formularz, a nasz zespół odpowie na Twoją wiadomość tak
                 szybko, jak to możliwe.
               </p>
-              <HorizontalLine />
+              <HorizontalLine className={"w-full"} />
               <p className={"text-xl"}>Informacje kontaktowe</p>
               <ContactList
                 className={"flex-col !items-start gap-4 text-dark-blue"}
               />
-              <HorizontalLine />
+              <HorizontalLine className={"w-full"} />
               <p className={"text-xl"}>Media społecznościowe</p>
               <SocialsList />
             </div>

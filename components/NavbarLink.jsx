@@ -2,7 +2,12 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export const NavbarLink = ({ href = "", title = "", className = "" }) => {
+export const NavbarLink = ({
+  href = "",
+  title = "",
+  className = "",
+  ...props
+}) => {
   const pathname = usePathname();
 
   // if nested routes, get parent route
@@ -20,7 +25,11 @@ export const NavbarLink = ({ href = "", title = "", className = "" }) => {
   } ${className}`;
 
   return href === "/" && pathname === "/" ? (
-    <button className={styling} onClick={href === "/" && scrollToTop}>
+    <button
+      className={styling}
+      onClick={href === "/" && scrollToTop}
+      {...props}
+    >
       {title}
       <span
         className={
@@ -29,7 +38,7 @@ export const NavbarLink = ({ href = "", title = "", className = "" }) => {
       ></span>
     </button>
   ) : (
-    <Link href={href} onClick={scrollToTop} className={styling}>
+    <Link href={href} onClick={scrollToTop} className={styling} {...props}>
       {title}
       <span
         className={

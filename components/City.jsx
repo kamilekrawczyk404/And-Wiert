@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const City = ({ props, point }) => {
+const City = ({ props, point, isShown }) => {
   const [isHover, setHover] = useState(false);
 
   const padding = 10,
@@ -32,9 +32,9 @@ const City = ({ props, point }) => {
       <motion.g
         className={"pointer-events-none select-none"}
         animate={{
-          opacity: isHover ? 1 : 0,
-          translateY: isHover ? -moveBy : 0,
-          display: isHover ? "block" : "hidden",
+          opacity: isShown || isHover ? 1 : 0,
+          translateY: isShown || isHover ? -moveBy : 0,
+          display: isShown || isHover ? "block" : "hidden",
         }}
       >
         <rect
