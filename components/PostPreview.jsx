@@ -2,12 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import PostBasicInfo from "./PostBasicInfo";
 
-export const PostPreview = ({ postProperties }) => {
+export const PostPreview = ({ postProperties, className }) => {
   return (
     <div
-      className={
-        "relative w-full bg-gray-100 rounded-sm shadow-sm overflow-hidden flex group md:flex-row flex-col-reverse"
-      }
+      className={`relative w-full bg-gray-100 rounded-sm shadow-sm overflow-hidden flex group md:flex-row flex-col-reverse ${className}`}
     >
       <div className={"flex flex-col gap-8 p-4 md:w-3/5 w-full"}>
         <div className={"space-y-2"}>
