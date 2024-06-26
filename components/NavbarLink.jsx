@@ -11,15 +11,25 @@ export const NavbarLink = ({ href = "", title = "", className = "" }) => {
       ? pathname.substring(0, pathname.lastIndexOf("/")) === href
       : pathname === href;
 
-  return (
-    <Link
-      href={href}
-      className={
-        "relative font-medium flex items-center gap-2 hover:cursor-pointer w-fit py-[0.125rem] " +
-        (isActive ? "[&>span]:w-full " : "[&>span]:hover:w-full ") +
-        className
-      }
-    >
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  const styling = `relative font-medium flex items-center gap-2 hover:cursor-pointer w-fit py-[0.125rem] ${
+    isActive ? "[&>span]:w-full" : "[&>span]:hover:w-full"
+  } ${className}`;
+
+  return href === "/" && pathname === "/" ? (
+    <button className={styling} onClick={href === "/" && scrollToTop}>
+      {title}
+      <span
+        className={
+          "absolute rounded-md bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[.25rem] transition-[width] bg-dark-orange"
+        }
+      ></span>
+    </button>
+  ) : (
+    <Link href={href} onClick={scrollToTop} className={styling}>
       {title}
       <span
         className={

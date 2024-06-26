@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 
 const useUserScrollPage = () => {
-  const { scrollYProgress } = useScroll();
+  const { scrollY } = useScroll();
+
   const [userScrolledPage, setUserScrolledPage] = useState(false);
   const [userScrolledUp, setUserScrolledUp] = useState(false);
 
-  useEffect(() => {
-    scrollYProgress.on("change", (y) => {
-      setUserScrolledPage(y > 0);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
 
-      // prevent a situation when user scrolls down and the window starts shrinking
-      setUserScrolledUp(
-        y * window.innerHeight < window.innerHeight - 25 &&
-          userScrolledPage &&
-          scrollYProgress.getVelocity() < 0,
-      );
-    });
-  }, [scrollYProgress, userScrolledPage]);
+    setUserScrolledPage(latest > 0);
+
+    if (previous < latest && latest > 300) {
+      setUserScrolledUp(true);
+    } else {
+      setUserScrolledUp(false);
+    }
+  });
 
   return { userScrolledUp, userScrolledPage };
 };

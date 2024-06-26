@@ -41,7 +41,7 @@ const Footer = () => {
         <Map
           id={"location"}
           mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-          style={{ width: "100vw", height: "50vh" }}
+          style={{ width: "100vw", height: "25vh" }}
           defaultCenter={mapsCoords}
           defaultZoom={15}
           gestureHandling={"cooperative"}

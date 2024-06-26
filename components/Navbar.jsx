@@ -2,15 +2,13 @@
 import { ContactNavbar } from "@/components/ContactNavbar";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDroplet } from "@fortawesome/free-solid-svg-icons";
-import { AnimatePresence, motion, useAnimate, useScroll } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from "react";
 import MotionContainer from "./MotionContainer";
 import { NavbarLink } from "./NavbarLink";
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import { Icon } from "./Icon";
-import StaggerList from "./StaggerList";
 import useUserScrolledPage from "../hooks/useUserScrolledPage";
 
 export const Navbar = () => {
@@ -53,68 +51,48 @@ export const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <nav className={"sticky top-0 left-0 flex flex-col z-50 shadow-lg w-full"}>
+    <motion.nav
+      // animate={{ position: userScrolledPage ? "sticky" : "absolute" }}
+      variants={{
+        scrollingDown: { y: "-100%" },
+        scrollingUp: { y: 0 },
+      }}
+      transition={{ duration: 0.25 }}
+      initial={"scrollingUp"}
+      animate={!userScrolledUp ? "scrollingUp" : "scrollingDown"}
+      className={"sticky top-0 left-0 flex flex-col z-50 shadow-lg w-full"}
+    >
       <ContactNavbar />
       <MotionContainer
-        className={"h-fit bg-white"}
-        initial={{
-          paddingTop: "1.5rem",
-          paddingBottom: "1.5rem",
-        }}
-        animate={{
-          paddingTop: !userScrolledUp && userScrolledPage ? "0.5rem" : "1.5rem",
-          paddingBottom:
-            !userScrolledUp && userScrolledPage ? "0.5rem" : "1.5rem",
-        }}
+        className={
+          "bg-white flex flex-row gap-16 text-lg lg:justify-between text-dark-blue py-6"
+        }
       >
-        <div
-          className={"flex gap-16 text-lg lg:justify-between text-dark-blue"}
+        <Link
+          className={
+            "text-dark-blue flex items-center text-3xl font-semibold space-x-2 whitespace-nowrap relative w-fit"
+          }
+          href={"https://and-wiert.pl"}
         >
-          <Link
-            className={
-              "text-dark-blue flex items-center text-3xl font-semibold space-x-2 whitespace-nowrap relative w-fit"
-            }
-            href={"https://and-wiert.pl"}
-          >
-            <motion.span
-              initial={{ fontSize: "1.875rem" }}
-              animate={{
-                fontSize:
-                  !userScrolledUp && userScrolledPage ? "1.5rem" : "1.875rem",
-              }}
-            >
-              <Icon.Logo />
-            </motion.span>
-            <motion.span
-              initial={{ fontSize: "1.875rem" }}
-              animate={{
-                fontSize:
-                  !userScrolledUp && userScrolledPage ? "1.75rem" : "2rem",
-              }}
-              className={"whitespace-nowrap inline-block"}
-            >
-              And-Wiert
-            </motion.span>
-          </Link>
+          <Icon.Logo />
+          <span className={"whitespace-nowrap inline-block"}>And-Wiert</span>
+        </Link>
 
-          <div
-            className={"xl:gap-16 lg:gap-8 whitespace-nowrap lg:flex hidden"}
-          >
-            {pageMap.map((link, index) => (
-              <NavbarLink key={index} href={link.href} title={link.title} />
-            ))}
-          </div>
-
-          <button
-            className={
-              "absolute lg:hidden inline-block text-3xl md:right-16 sm:right-8 right-4 z-10"
-            }
-            onClick={() => setMenuOpen((prev) => !prev)}
-            title={`${menuOpen ? "Zamknij" : "Otwórz"} menu`}
-          >
-            <FontAwesomeIcon icon={faBars} className={"text-dark-blue"} />
-          </button>
+        <div className={"xl:gap-16 lg:gap-8 whitespace-nowrap lg:flex hidden"}>
+          {pageMap.map((link, index) => (
+            <NavbarLink key={index} href={link.href} title={link.title} />
+          ))}
         </div>
+
+        <button
+          className={
+            "absolute lg:hidden inline-block text-3xl md:right-16 sm:right-8 right-4 z-10"
+          }
+          onClick={() => setMenuOpen((prev) => !prev)}
+          title={`${menuOpen ? "Zamknij" : "Otwórz"} menu`}
+        >
+          <FontAwesomeIcon icon={faBars} className={"text-dark-blue"} />
+        </button>
 
         {/*mobile layout*/}
         <div
@@ -131,12 +109,12 @@ export const Navbar = () => {
                 href={link.href}
                 key={index}
                 title={link.title}
-                className={"text-4xl"}
+                className={"text-4xl whitespace-nowrap"}
               />
             ))}
           </div>
         </div>
       </MotionContainer>
-    </nav>
+    </motion.nav>
   );
 };
