@@ -9,6 +9,7 @@ import { Container } from "./Container";
 import { ArticleSection } from "./ArticleSection";
 import { motion } from "framer-motion";
 import { Icon } from "./Icon";
+import Image from "next/image";
 
 export const Gallery = () => {
   const { alt, motionVariants } = useContext(SiteDetailsContext);
@@ -24,6 +25,11 @@ export const Gallery = () => {
     "gallery3.webp",
     "gallery4.webp",
     "gallery5.webp",
+    "gallery6.webp",
+    "gallery5.webp",
+    "gallery8.webp",
+    "gallery9.webp",
+    "gallery10.webp",
     "zdj1.webp",
     "zdj2.webp",
   ];
@@ -72,28 +78,27 @@ export const Gallery = () => {
 
   const renderImages = () => {
     return images.map((image, key) => (
-      <SplideSlide
-        key={key}
-        className={
-          "rounded-md overflow-hidden flex justify-center items-center"
-        }
-      >
-        <motion.img
+      <SplideSlide key={key} className={"rounded-md overflow-hidden"}>
+        <motion.div
           initial={motionVariants.hidden}
           animate={motionVariants.visible}
-          className={"rounded-md h-full w-full"}
-          src={`./images/gallery/${image}`}
-          alt={alt}
-        />
+          className={"relative w-full h-[60vh]"}
+        >
+          <Image
+            className={"rounded-md w-full h-full object-cover"}
+            fill
+            sizes={"60vh"}
+            src={`/images/gallery/${image}`}
+            alt={alt}
+            priority={true}
+          />
+        </motion.div>
       </SplideSlide>
     ));
   };
 
   return (
-    <Container
-      ref={(element) => pageRefs.current.push(element)}
-      className={"relative xl:flex items-center justify-center"}
-    >
+    <Container className={"relative"}>
       <ArticleSection
         title={"Przykładowe realizacje studni głebinowych"}
         className={"justify-center items-center sm:gap-2 gap-1"}
@@ -106,7 +111,7 @@ export const Gallery = () => {
         >
           <SplideTrack>{renderImages()}</SplideTrack>
           <div className="splide__progress bg-dark-orange flex items-center h-[1rem] rounded mt-4">
-            <div className="splide__progress__bar !bg-dark-blue mx-1 !h-[0.5rem] rounded" />
+            <div className="splide__progress__bar !bg-dark-blue mx-1 !h-[0.5rem] rounded-sm" />
           </div>
           <div className="splide__arrows absolute left-0 w-full flex items-center justify-between top-1/2 -translate-y-1/2">
             <button
