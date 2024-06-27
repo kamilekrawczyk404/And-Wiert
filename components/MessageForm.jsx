@@ -13,12 +13,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
+import SubmitButton from "./SubmitButton";
 
 const MessageForm = () => {
   const [triedSending, setTriedSending] = useState(false);
-
-  const recaptchaRef = useRef(null);
-
   const [validFields, setValidFields] = useState({
     name: false,
     email: false,
@@ -31,7 +29,6 @@ const MessageForm = () => {
     handleSubmit,
     formState: { errors, isValid },
     trigger,
-    setValue,
   } = useForm({
     defaultValues: {
       name: "",
@@ -64,10 +61,6 @@ const MessageForm = () => {
 
   const onSubmit = async (data) => {
     mutate(data);
-  };
-
-  const onRecaptchaChange = (value) => {
-    setValue("recaptcha", value, { shouldValidate: true });
   };
 
   return (
@@ -169,107 +162,13 @@ const MessageForm = () => {
         )}
       </AnimatePresence>
 
-      {/*<ReCAPTCHA*/}
-      {/*  ref={recaptchaRef}*/}
-      {/*  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}*/}
-      {/*  onChange={onRecaptchaChange}*/}
-      {/*/>*/}
-
-      <div
-        className={
-          "flex md:flex-row flex-col items-center justify-center gap-4 relative w-full"
-        }
-      >
-        <AnimatePresence>
-          <motion.button
-            whileTap={{
-              scale: 0.95,
-            }}
-            disabled={isPending || isSuccess || isError}
-            type={"submit"}
-            className={`py-6 px-4 rounded-sm shadow-sm font-semibold transition-all flex items-center justify-center gap-2  h-[2.5rem]  
-            ${
-              !triedSending && isPending
-                ? "bg-dark-orange brightness-75 w-full"
-                : ""
-            }
-            ${
-              !triedSending && !isPending
-                ? "bg-light-orange hover:bg-dark-orange w-full"
-                : ""
-            }
-            ${
-              triedSending && isSuccess ? "bg-lime-600 md:w-[10rem] w-full" : ""
-            }  
-            ${isError && triedSending ? "bg-red-600 md:w-[10rem] w-full" : ""}`}
-          >
-            {isPending && !triedSending && (
-              <motion.span
-                initial={{ opacity: 0.5 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 0.5,
-                  repeatType: "mirror",
-                }}
-              >
-                <motion.span
-                  className={"absolute"}
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    repeatType: "loop",
-                    repeat: Infinity,
-                    duration: 1,
-                  }}
-                >
-                  <FontAwesomeIcon icon={faHourglassHalf} />
-                </motion.span>
-                <span className={"ml-6"}>Wysyłanie</span>
-              </motion.span>
-            )}{" "}
-            {!isPending && !triedSending && (
-              <>
-                <FontAwesomeIcon icon={faPaperPlane} />
-                <span>Wyślij</span>
-              </>
-            )}
-            {isSuccess && triedSending && (
-              <FontAwesomeIcon
-                icon={faCheck}
-                className={"text-white text-xl"}
-              />
-            )}
-            {isError && triedSending && (
-              <FontAwesomeIcon
-                icon={faExclamation}
-                className={"text-white text-xl"}
-              />
-            )}
-          </motion.button>
-
-          {triedSending && isSuccess && (
-            <motion.span
-              key={"successInfo"}
-              initial={{ opacity: 0, translateY: "0.5rem" }}
-              animate={{ opacity: 1, translateY: 0 }}
-              className={"text-lime-600"}
-            >
-              Wiadomość została wysłana.
-            </motion.span>
-          )}
-          {triedSending && isError && (
-            <motion.span
-              key={"failInfo"}
-              initial={{ opacity: 0, translateY: "0.5rem" }}
-              animate={{ opacity: 1, translateY: 0 }}
-              className={"text-red-600"}
-            >
-              Coś poszło nie tak.
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </div>
+      <SubmitButton
+        isError={isError}
+        isPending={isPending}
+        isSuccess={isSuccess}
+        successInfo={"Wiadomość została wysłana"}
+        triedSending={triedSending}
+      />
     </motion.form>
   );
 };

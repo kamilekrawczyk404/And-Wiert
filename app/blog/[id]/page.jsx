@@ -11,6 +11,7 @@ import HorizontalLine from "../../../components/HorizontalLine";
 import StaggerList from "../../../components/StaggerList";
 import { PostPreview } from "../../../components/PostPreview";
 import MotionContainer from "../../../components/MotionContainer";
+import CommentForm from "../../../components/CommentForm";
 
 export default function Post({ params }) {
   const { id } = params;
@@ -128,6 +129,12 @@ export default function Post({ params }) {
 
           <HorizontalLine accent className={"w-full md:mt-8 mt-4"} />
           <PostTitle title={"Komentarze"} />
+          <div className={"grid md:grid-cols-2"}>
+            <div className={"w-full flex items-center"}>
+              <p>Bądź pierwszą osobą, która skomentuje ten post!</p>
+            </div>
+            <CommentForm commentId={id} />
+          </div>
 
           <PostTitle title={"Zobacz również nasze inne posty"} />
           <div className={"grid md:grid-cols-2 gap-2"}>

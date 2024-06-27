@@ -3,7 +3,7 @@ import { ErrorMessage } from "@hookform/error-message";
 
 // eslint-disable-next-line react/display-name
 const Textarea = forwardRef(
-  ({ className = "", title = "", errors, validFields, ...props }, ref) => {
+  ({ className = "", text = "", errors, validFields, ...props }, ref) => {
     const hasError = errors.hasOwnProperty(props.name);
 
     return (
@@ -11,7 +11,7 @@ const Textarea = forwardRef(
         <textarea
           {...props}
           ref={ref}
-          placeholder={title}
+          placeholder={text}
           className={`relative bg-transparent focus:outline-none text-gray-700 placeholder:text-transparent peer border-[0.125rem]  p-2 rounded-sm focus:border-dark-orange transition-all resize-none w-full h-[20vh] ${
             hasError
               ? "border-red-500"
@@ -29,7 +29,7 @@ const Textarea = forwardRef(
                 : "text-light-blue"
           }`}
         >
-          {title}
+          {text}
         </label>
         {hasError && (
           <ErrorMessage

@@ -10,7 +10,6 @@ export async function POST(request: NextRequest) {
     nodemailer.createTransport({
       // @ts-ignore
       secure: true,
-      // service: "ovh",
       host: process.env.NEXT_PUBLIC_SMTP_HOST,
       port: process.env.NEXT_PUBLIC_SMTP_PORT,
       auth: {
