@@ -46,7 +46,7 @@ const Services = () => {
         >
           <Image
             src={"/images/gallery/zdj2.webp"}
-            alt={""}
+            alt={"Przykładowa realizacja u klienta"}
             layout={"fill"}
             objectFit={"cover"}
             title={"Przykładowa realizacja u klienta"}
@@ -59,7 +59,7 @@ const Services = () => {
         >
           <Image
             src={"/images/gallery/zdj1.webp"}
-            alt={""}
+            alt={"Przykładowa realizacja u klienta"}
             layout={"fill"}
             objectFit={"cover"}
             title={"Przykładowa realizacja u klienta"}
