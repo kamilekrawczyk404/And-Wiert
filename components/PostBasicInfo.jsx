@@ -1,20 +1,23 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import { faClock } from "@fortawesome/free-solid-svg-icons/faClock";
+import FormatDate from "./FormatDate";
+import { Icon } from "./Icon";
 
 const PostBasicInfo = ({ props, className = "" }) => {
   return (
     <div
-      className={`flex gap-2 *:flex *:gap-1 *:items-center text-dark-blue ${className}`}
+      className={`flex md:flex-row flex-col *:flex *:gap-1 *:items-center text-dark-blue ${className}`}
     >
       <p>
-        <FontAwesomeIcon icon={faCalendar} />
-        {props.createdAt}
+        <Icon.Calendar />
+        <FormatDate dateAsString={props.createdAt} />
       </p>
       <p>
-        <FontAwesomeIcon icon={faClock} />
+        <Icon.Clock />
         {props.readingTime}
+      </p>
+      <p>
+        <Icon.User />
+        Admin
       </p>
     </div>
   );

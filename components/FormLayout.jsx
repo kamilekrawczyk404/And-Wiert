@@ -19,7 +19,7 @@ const FormLayout = ({ triedSending, isSuccess, title, children, ...props }) => {
     >
       <span
         className={
-          "absolute -top-4 left-2 text-xl px-2 bg-white text-dark-orange"
+          "absolute -top-[1.35rem] left-2 text-xl px-2 bg-white text-dark-orange"
         }
       >
         {title}

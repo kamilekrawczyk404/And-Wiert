@@ -14,9 +14,10 @@ import {
   faClock,
   faBars,
   faAnglesUp,
-  faAnglesLeft,
   faAngleLeft,
   faAngleRight,
+  faUserTie,
+  faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Icon = {
@@ -70,5 +71,11 @@ export const Icon = {
   ),
   Bars: ({ className = "" }) => (
     <FontAwesomeIcon icon={faBars} className={className} />
+  ),
+  User: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faUserTie} className={className} />
+  ),
+  Warning: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faTriangleExclamation} className={className} />
   ),
 };

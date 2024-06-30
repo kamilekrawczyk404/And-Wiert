@@ -14,11 +14,12 @@ const SubmitButton = ({
   isError,
   triedSending,
   successInfo,
+  title,
 }) => {
   return (
     <div
       className={
-        "flex md:flex-row flex-col items-center justify-center gap-4 relative w-full"
+        "flex md:flex-row flex-col items-center justify-center md:gap-4 relative w-fit"
       }
     >
       <AnimatePresence>
@@ -28,7 +29,7 @@ const SubmitButton = ({
           }}
           disabled={isPending || isSuccess || isError}
           type={"submit"}
-          className={`py-6 px-4 rounded-sm shadow-sm font-semibold transition-all flex items-center justify-center gap-2  h-[2.5rem]  
+          className={`py-6 px-4 rounded-sm shadow-sm font-semibold transition-all flex items-center justify-center gap-2 h-[2.5rem]  
             ${
               !triedSending && isPending
                 ? "bg-dark-orange brightness-75 w-full"
@@ -40,9 +41,15 @@ const SubmitButton = ({
                 : ""
             }
             ${
-              triedSending && isSuccess ? "bg-lime-600 md:w-[10rem] w-full" : ""
+              triedSending && isSuccess
+                ? "bg-lime-600 !w-10 !aspect-square !rounded-full !py-0"
+                : ""
             }  
-            ${isError && triedSending ? "bg-red-600 md:w-[10rem] w-full" : ""}`}
+            ${
+              isError && triedSending
+                ? "bg-red-600 !aspect-square !rounded-full !py-0"
+                : ""
+            }`}
         >
           {isPending && !triedSending && (
             <motion.span
@@ -72,7 +79,7 @@ const SubmitButton = ({
           {!isPending && !triedSending && (
             <>
               <FontAwesomeIcon icon={faPaperPlane} />
-              <span>Wyślij</span>
+              <span>{title}</span>
             </>
           )}
           {isSuccess && triedSending && (

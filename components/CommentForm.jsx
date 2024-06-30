@@ -4,23 +4,22 @@ import useHandleSending from "../hooks/useHandleSending";
 import Input from "./Input";
 import Textarea from "./Textarea";
 import SubmitButton from "./SubmitButton";
-import { motion } from "framer-motion";
 import FormLayout from "./FormLayout";
 
-const CommentForm = ({ commentId }) => {
+const CommentForm = ({ postId }) => {
   const {
     onSubmit,
-    isFieldValid,
     register,
     handleSubmit,
     triedSending,
-    validFields,
     isPending,
     isError,
     isSuccess,
     errors,
-  } = useHandleSending(["username", "message"], "/api/comment", {
-    id: commentId,
+    touchedFields,
+    dirtyFields,
+  } = useHandleSending({ username: "", message: "" }, "/api/comment", {
+    postId: postId,
   });
 
   return (
@@ -30,33 +29,39 @@ const CommentForm = ({ commentId }) => {
       onSubmit={handleSubmit(onSubmit)}
       title={"Napisz komentarz"}
     >
-      <Input
-        text={"Imię"}
-        validFields={validFields}
-        {...register("username", {
-          required: {
-            value: true,
-            message: "To pole jest wymagane",
-          },
-        })}
-        type={"text"}
-        errors={errors}
-        onBlur={() => isFieldValid("name")}
-      />
-      <Textarea
-        text={"Wiadomość"}
-        validFields={validFields}
-        errors={errors}
-        {...register("message", {
-          required: { value: true, message: "To pole jest wymagane" },
-        })}
-        onBlur={() => isFieldValid("name")}
-      />
+      {!triedSending && (
+        <>
+          <Input
+            text={"Imię"}
+            touchedFields={touchedFields}
+            dirtyFields={dirtyFields}
+            {...register("username", {
+              required: {
+                value: true,
+                message: "To pole jest wymagane",
+              },
+            })}
+            type={"text"}
+            errors={errors}
+          />
+          <Textarea
+            text={"Wiadomość"}
+            touchedFields={touchedFields}
+            dirtyFields={dirtyFields}
+            errors={errors}
+            {...register("message", {
+              required: { value: true, message: "To pole jest wymagane" },
+            })}
+          />
+        </>
+      )}
+
       <SubmitButton
         triedSending={triedSending}
         isError={isError}
         isPending={isPending}
         successInfo={"Komentarz został dodany."}
+        title={"Dodaj komentarz"}
         isSuccess={isSuccess}
       />
     </FormLayout>

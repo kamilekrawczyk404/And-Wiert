@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const response = await sendEmailPromise();
+
     return NextResponse.json({ success: true, message: response });
   } catch (error) {
     return NextResponse.json({

@@ -2,89 +2,40 @@
 import React, { useRef, useState } from "react";
 import Input from "./Input";
 import Textarea from "./Textarea";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons/faPaperPlane";
-import { set, useForm } from "react-hook-form";
-import { ReCAPTCHA } from "react-google-recaptcha";
-import {
-  faCheck,
-  faExclamation,
-  faHourglassHalf,
-} from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
-import { useMutation } from "@tanstack/react-query";
 import SubmitButton from "./SubmitButton";
+import useHandleSending from "../hooks/useHandleSending";
+import FormLayout from "./FormLayout";
 
 const MessageForm = () => {
-  const [triedSending, setTriedSending] = useState(false);
-  const [validFields, setValidFields] = useState({
-    name: false,
-    email: false,
-    title: false,
-    emailMessage: false,
-  });
-
   const {
     register,
+    triedSending,
+    dirtyFields,
+    isSuccess,
+    isError,
+    isPending,
+    onSubmit,
+    errors,
     handleSubmit,
-    formState: { errors, isValid },
-    trigger,
-  } = useForm({
-    defaultValues: {
+    touchedFields,
+  } = useHandleSending(
+    {
       name: "",
       email: "",
       title: "",
       emailMessage: "",
     },
-  });
-
-  const isFieldValid = (name) => {
-    const result = trigger(name);
-    setValidFields((prev) => ({ ...prev, [name]: result }));
-  };
-
-  const { mutate, isPending, isError, isSuccess } = useMutation({
-    // send an email and change the sending state
-
-    mutationFn: async (data) => {
-      await fetch("/api/email", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
-    },
-
-    // change flag for success or error state
-    onSettled: () => {
-      setTriedSending(true);
-    },
-  });
-
-  const onSubmit = async (data) => {
-    mutate(data);
-  };
+    "/api/email",
+  );
 
   return (
-    <motion.form
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+    <FormLayout
+      title={"Formularz"}
+      isSuccess={isSuccess}
+      triedSending={triedSending}
       onSubmit={handleSubmit(onSubmit)}
-      className={`${
-        !triedSending ? "md:gap-4 gap-2 " : "gap-1"
-      } flex flex-col relative w-full border-[0.125rem] rounded-sm p-4 h-fit ${
-        !triedSending
-          ? "border-dark-orange"
-          : `${isSuccess ? "border-lime-500" : "border-red-500"}`
-      }
-         
-      }`}
     >
-      <span
-        className={
-          "absolute -top-4 left-2 text-xl px-2 bg-white text-dark-orange"
-        }
-      >
-        Formularz
-      </span>
       <AnimatePresence>
         {!triedSending && (
           <motion.div
@@ -97,7 +48,8 @@ const MessageForm = () => {
           >
             <div className={"flex gap-4 w-full 2xl:flex-row flex-col"}>
               <Input
-                validFields={validFields}
+                touchedFields={touchedFields}
+                dirtyFields={dirtyFields}
                 errors={errors}
                 type={"text"}
                 text={"Imię"}
@@ -108,11 +60,11 @@ const MessageForm = () => {
                     message: "To pole jest wymagane",
                   },
                 })}
-                onBlur={() => isFieldValid("name")}
               />
 
               <Input
-                validFields={validFields}
+                touchedFields={touchedFields}
+                dirtyFields={dirtyFields}
                 errors={errors}
                 type={"email"}
                 text={"Email"}
@@ -127,12 +79,12 @@ const MessageForm = () => {
                     message: "Nieprawidłowy adres email",
                   },
                 })}
-                onBlur={() => isFieldValid("email")}
               />
             </div>
 
             <Input
-              validFields={validFields}
+              touchedFields={touchedFields}
+              dirtyFields={dirtyFields}
               errors={errors}
               type={"text"}
               text={"Temat"}
@@ -143,10 +95,10 @@ const MessageForm = () => {
                   message: "To pole jest wymagane",
                 },
               })}
-              onBlur={() => isFieldValid("title")}
             />
             <Textarea
-              validFields={validFields}
+              touchedFields={touchedFields}
+              dirtyFields={dirtyFields}
               errors={errors}
               title={"Wiadomość"}
               className={"w-full"}
@@ -156,7 +108,6 @@ const MessageForm = () => {
                   message: "To pole jest wymagane",
                 },
               })}
-              onBlur={() => isFieldValid("emailMessage")}
             />
           </motion.div>
         )}
@@ -167,9 +118,10 @@ const MessageForm = () => {
         isPending={isPending}
         isSuccess={isSuccess}
         successInfo={"Wiadomość została wysłana"}
+        title={"Wyślij"}
         triedSending={triedSending}
       />
-    </motion.form>
+    </FormLayout>
   );
 };
 

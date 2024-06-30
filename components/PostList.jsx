@@ -10,13 +10,12 @@ const PostList = ({ aspects }) => {
       }
     >
       {aspects.map((aspect, index) => (
-        <>
+        <div key={index} className={"space-y-2"}>
           <h3 className={"text-2xl text-dark-orange"}>
             {index + 1 + "# "}
             {aspect.title}
           </h3>
           <section
-            key={index}
             className={`flex gap-8 ${
               index % 2 === 0 && "md:flex-row-reverse"
             } md:flex-row flex-col`}
@@ -51,9 +50,9 @@ const PostList = ({ aspects }) => {
 
             <StaggerList
               inView={true}
-              className={
-                "md:w-1/2 w-full flex flex-col md:gap-4 gap-2 self-center"
-              }
+              className={`${
+                aspect.hasOwnProperty("imageSrc") ? "md:w-1/2 " : ""
+              }w-full flex flex-col md:gap-4 gap-2 self-center`}
               items={aspect.descriptions.map((description, index) => (
                 <p
                   key={index}
@@ -66,7 +65,7 @@ const PostList = ({ aspects }) => {
               ))}
             />
           </section>
-        </>
+        </div>
       ))}
     </div>
   );

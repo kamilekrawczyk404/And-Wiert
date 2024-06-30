@@ -1,9 +1,6 @@
 "use client";
 import React, { useContext } from "react";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { Container } from "./Container";
 import {
   AdvancedMarker,
@@ -20,13 +17,7 @@ import StaggerList from "./StaggerList";
 import ContactList from "./ContactList";
 
 const Footer = () => {
-  // const contact = {
-  //   telephone: "500327556",
-  //   email: "studnie@and-wiert.pl",
-  //   facebook: "https://www.facebook.com/andrzej.wolski.37201",
-  // };
-
-  const { contact, pageMap } = useContext(SiteDetailsContext);
+  const { pageMap } = useContext(SiteDetailsContext);
 
   const mapsCoords = {
     lat: 49.83963653988157,
@@ -41,7 +32,7 @@ const Footer = () => {
         <Map
           id={"location"}
           mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-          style={{ width: "100vw", height: "25vh" }}
+          style={{ width: "100vw", height: "20rem" }}
           defaultCenter={mapsCoords}
           defaultZoom={15}
           gestureHandling={"cooperative"}

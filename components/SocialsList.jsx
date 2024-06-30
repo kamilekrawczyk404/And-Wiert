@@ -1,12 +1,7 @@
 import React, { useContext } from "react";
 import StaggerList from "./StaggerList";
-import { useQuery } from "@tanstack/react-query";
-import { getSocials } from "../app/api/actions";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
-import { Icon } from "./Icon";
 
 const SocialsList = ({ className = "" }) => {
   const { socials } = useContext(SiteDetailsContext);
