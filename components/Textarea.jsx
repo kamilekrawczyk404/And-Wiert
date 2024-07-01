@@ -13,8 +13,6 @@ const Textarea = forwardRef(
       isDirty: dirtyFields[props.name],
     };
 
-    console.log(props);
-
     return (
       <div className={`relative ${className}`}>
         <textarea

@@ -4,7 +4,7 @@ import { Icon } from "./Icon";
 import { motion } from "framer-motion";
 
 const MoveIndicator = () => {
-  const { userScrolledPage } = useUserScrollPage();
+  const { userScrolledPage, userScrolledUp } = useUserScrollPage();
 
   const scroll = () => {
     userScrolledPage
@@ -21,10 +21,10 @@ const MoveIndicator = () => {
       transition={{
         delay: 0.5,
       }}
-      className={`pointer-events-none flex z-20 ${
+      className={`pointer-events-none flex z-50 ${
         userScrolledPage
-          ? "sticky sm:bottom-4 bottom-2 mb-1 w-screen"
-          : "absolute left-1/2 -translate-x-1/2 bottom-[2rem] flex items-center justify-center"
+          ? "sticky md:flex hidden md:bottom-2 mb-1 w-screen"
+          : "absolute left-1/2 -translate-x-1/2 md:bottom-[2rem] bottom-[1rem] flex items-center justify-center"
       }`}
     >
       <button
@@ -36,7 +36,7 @@ const MoveIndicator = () => {
         {userScrolledPage ? (
           <Icon.AnglesUp
             className={
-              "w-12 h-6 aspect-square bg-dark-orange rounded-full p-2 sm:mr-4 mr-2"
+              "w-12 h-6 aspect-square bg-dark-orange rounded-full p-2 md:mr-2 "
             }
           />
         ) : (

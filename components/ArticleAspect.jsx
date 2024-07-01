@@ -10,7 +10,6 @@ const ArticleAspect = ({ title = "" }) => {
       className={"opacity-0 -translate-x-12"}
       viewport={{
         once: true,
-        amount: 1,
       }}
       transition={{
         delay: 0.5,

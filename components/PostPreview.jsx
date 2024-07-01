@@ -9,13 +9,13 @@ export const PostPreview = ({
 }) => {
   return (
     <div
-      className={`relative w-full bg-gray-100 rounded-sm shadow-sm overflow-hidden flex group b border-2 border-dark-blue ${
-        inColumn ? "flex-col-reverse" : "md:flex-row"
+      className={`relative w-full bg-gray-100 rounded-sm shadow-sm overflow-hidden flex group border-2 border-dark-blue ${
+        inColumn ? "flex-col-reverse" : "md:flex-row flex-col-reverse"
       } ${className}`}
     >
       <div
         className={`flex flex-col ${
-          inColumn ? "gap-4 w-full" : "gap-8 md:w-3/5"
+          inColumn ? "gap-4 w-full" : "md:gap-8 gap-4 md:w-3/5"
         } p-4`}
       >
         <div className={"space-y-2"}>
@@ -29,7 +29,9 @@ export const PostPreview = ({
           </Link>
           <PostBasicInfo
             props={postProperties}
-            className={inColumn ? "!flex-col gap-2" : "!flex-row gap-4"}
+            className={
+              inColumn ? "!flex-col gap-2" : "!md:flex-row flex-col gap-4"
+            }
           />
         </div>
 
@@ -52,8 +54,8 @@ export const PostPreview = ({
 
       <div
         className={`relative ${
-          inColumn ? "w-full h-[10rem] " : "md:w-2/5 md:h-auto"
-        }  overflow-hidden`}
+          inColumn ? "w-full h-[10rem] " : "md:w-2/5 w-full md:h-auto h-[10rem]"
+        } overflow-hidden`}
       >
         <Image
           className={"group-hover:scale-[1.15] transition duration-800"}

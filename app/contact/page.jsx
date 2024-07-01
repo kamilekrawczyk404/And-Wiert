@@ -1,20 +1,28 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { ArticleSection } from "../../components/ArticleSection";
 import HorizontalLine from "../../components/HorizontalLine";
 import MessageForm from "../../components/MessageForm";
 import { Container } from "../../components/Container";
 import SocialsList from "../../components/SocialsList";
 import ContactList from "../../components/ContactList";
+import Seo from "../../components/Seo";
+import { SiteDetailsContext } from "../../utils/providers/SiteDetailsProvider";
 
 export default function Contact() {
+  const { description, keywords } = useContext(SiteDetailsContext);
   return (
     <>
+      <Seo
+        title={"And-Wiert - Kontakt"}
+        image={"https://and-wiert.pl/images/hero/main1.webp"}
+        url={"https://and-wiert.pl/contact"}
+      />
       <Container className={`bg-white`}>
         <ArticleSection title={"Bądźmy w kontakcie"}>
           <div
             className={
-              "w-full flex lg:flex-row flex-col-reverse xl:gap-32 lg:gap-16 md:gap-8 gap-8"
+              "w-full flex lg:flex-row flex-col xl:gap-32 lg:gap-16 md:gap-8 gap-8"
             }
           >
             <div className={"flex flex-col space-y-4 w-full"}>

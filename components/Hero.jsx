@@ -100,11 +100,15 @@ const Hero = ({ currentIndex }) => {
             href={contact.phone.href}
             title={"Zadzwoń do nas!"}
             className={
-              "h-full mx-auto bg-dark-orange text-dark-blue md:text-3xl sm:text-2xl text-xl md:px-8 sm:px-4 px-2 flex sm:p-0 justify-center items-center whitespace-nowrap gap-2"
+              "h-full mx-auto bg-dark-orange text-dark-blue md:text-3xl sm:text-2xl text-xl md:px-8 sm:px-4 px-2 flex sm:flex-row flex-col sm:w-fit w-full sm:p-0 justify-center items-center whitespace-nowrap sm:gap-2 gap-1"
             }
           >
             <span>Zadzwoń do nas</span>
-            <span className={"bg-gray-100 p-2 rounded-sm font-semibold w-full"}>
+            <span
+              className={
+                "bg-gray-100 sm:p-2 p-1 rounded-sm font-semibold sm:w-full w-fit"
+              }
+            >
               {contact.phone.value}
             </span>
           </Link>

@@ -100,7 +100,7 @@ const MessageForm = () => {
               touchedFields={touchedFields}
               dirtyFields={dirtyFields}
               errors={errors}
-              title={"Wiadomość"}
+              text={"Wiadomość"}
               className={"w-full"}
               {...register("emailMessage", {
                 required: {

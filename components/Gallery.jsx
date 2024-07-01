@@ -2,8 +2,6 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import { useContext, useEffect, useRef } from "react";
 import "@splidejs/react-splide/css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import { Container } from "./Container";
 import { ArticleSection } from "./ArticleSection";
@@ -20,13 +18,14 @@ export const Gallery = () => {
   useEffect(() => {
     mainRef.current.sync(thumbsRef.current.splide);
   }, []);
+
   const images = [
     "gallery2.webp",
     "gallery3.webp",
     "gallery4.webp",
     "gallery5.webp",
     "gallery6.webp",
-    "gallery7.webp",
+    // "gallery7.webp",
     "gallery8.webp",
     "gallery9.webp",
     "gallery10.webp",
@@ -91,6 +90,7 @@ export const Gallery = () => {
             src={`/images/gallery/${image}`}
             alt={alt}
             priority={true}
+            loading={"eager"}
           />
         </motion.div>
       </SplideSlide>

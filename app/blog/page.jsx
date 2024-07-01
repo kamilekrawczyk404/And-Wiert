@@ -4,10 +4,13 @@ import { Container } from "../../components/Container";
 import { PostPreview } from "../../components/PostPreview";
 import StaggerList from "../../components/StaggerList";
 import { createPost, getPosts } from "../api/actions";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loading from "../../components/Loading";
+import Seo from "../../components/Seo";
+import { SiteDetailsContext } from "../../utils/providers/SiteDetailsProvider";
 
 export default function Blog() {
+  const { keywords, description } = useContext(SiteDetailsContext);
   const { data, isPending, isError } = getPosts();
   const { newPost, isSuccess, mutate } = createPost();
 
@@ -40,20 +43,27 @@ export default function Blog() {
   }, [isPending, newPost, isSuccess]);
 
   return (
-    <Container className={"md:my-8 my-4 flex flex-col md:gap-8 gap-4"}>
-      <p className={"text-3xl text-dark-orange font-bold"}>
-        Nasze Ostatnie Wpisy
-      </p>
-      {isPending ? (
-        <Loading title={"Ładowanie postów"} />
-      ) : (
-        <StaggerList
-          className={"flex flex-col md:gap-8 gap-4"}
-          items={posts.map((post, index) => (
-            <PostPreview postProperties={post} key={index} />
-          ))}
-        ></StaggerList>
-      )}
-    </Container>
+    <>
+      <Seo
+        title={"And-Wiert - Blog"}
+        image={"https://and-wiert.pl/images/gallery/gallery6.webp"}
+        url={"https://and-wiert.pl/blog"}
+      />
+      <Container className={"md:my-8 my-4 flex flex-col md:gap-8 gap-4"}>
+        <p className={"text-3xl text-dark-orange font-bold"}>
+          Nasze Ostatnie Wpisy
+        </p>
+        {isPending ? (
+          <Loading title={"Ładowanie postów"} />
+        ) : (
+          <StaggerList
+            className={"flex flex-col md:gap-8 gap-4"}
+            items={posts.map((post, index) => (
+              <PostPreview postProperties={post} key={index} />
+            ))}
+          ></StaggerList>
+        )}
+      </Container>
+    </>
   );
 }

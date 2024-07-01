@@ -19,7 +19,7 @@ const SubmitButton = ({
   return (
     <div
       className={
-        "flex md:flex-row flex-col items-center justify-center md:gap-4 relative w-fit"
+        "flex md:flex-row flex-col items-center justify-center md:gap-4 relative sm:w-fit w-full"
       }
     >
       <AnimatePresence>
