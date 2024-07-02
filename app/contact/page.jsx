@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, from "react";
+import React from "react";
 import { ArticleSection } from "../../components/ArticleSection";
 import HorizontalLine from "../../components/HorizontalLine";
 import MessageForm from "../../components/MessageForm";
