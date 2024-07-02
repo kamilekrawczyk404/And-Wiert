@@ -12,7 +12,6 @@ import {
 import { Icon } from "./Icon";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import SocialsList from "./SocialsList";
-import { NavbarLink } from "./NavbarLink";
 import StaggerList from "./StaggerList";
 import ContactList from "./ContactList";
 
@@ -56,6 +55,7 @@ const Footer = () => {
               <Link
                 className={"text-gray-100 font-bold flex items-center"}
                 href={"https://and-wiert.pl"}
+                title={"And-Wiert"}
               >
                 <Icon.Logo className={"mr-1 text-2xl"} />
                 <span className={"text-3xl"}>And-Wiert</span>

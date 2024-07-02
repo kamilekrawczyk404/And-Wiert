@@ -1,12 +1,10 @@
 "use client";
 import { ContactNavbar } from "@/components/ContactNavbar";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useAnimate } from "framer-motion";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MotionContainer from "./MotionContainer";
 import { NavbarLink } from "./NavbarLink";
-import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import { Icon } from "./Icon";
 import useUserScrolledPage from "../hooks/useUserScrolledPage";
@@ -90,7 +88,7 @@ export const Navbar = () => {
           onClick={() => setMenuOpen((prev) => !prev)}
           title={`${menuOpen ? "Zamknij" : "Otwórz"} menu`}
         >
-          <FontAwesomeIcon icon={faBars} className={"text-dark-blue"} />
+          <Icon.Bars className={"text-dark-blue"} />
         </button>
 
         {/*mobile layout*/}

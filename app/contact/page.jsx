@@ -1,5 +1,6 @@
-"use client";
-import React, { useContext } from "react";
+"use client"
+
+import React, from "react";
 import { ArticleSection } from "../../components/ArticleSection";
 import HorizontalLine from "../../components/HorizontalLine";
 import MessageForm from "../../components/MessageForm";
@@ -7,10 +8,8 @@ import { Container } from "../../components/Container";
 import SocialsList from "../../components/SocialsList";
 import ContactList from "../../components/ContactList";
 import Seo from "../../components/Seo";
-import { SiteDetailsContext } from "../../utils/providers/SiteDetailsProvider";
 
 export default function Contact() {
-  const { description, keywords } = useContext(SiteDetailsContext);
   return (
     <>
       <Seo

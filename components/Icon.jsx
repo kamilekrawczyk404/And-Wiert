@@ -18,6 +18,10 @@ import {
   faAngleRight,
   faUserTie,
   faTriangleExclamation,
+  faCheck,
+  faExclamation,
+  faFaucetDrip,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Icon = {
@@ -77,5 +81,17 @@ export const Icon = {
   ),
   Warning: ({ className = "" }) => (
     <FontAwesomeIcon icon={faTriangleExclamation} className={className} />
+  ),
+  Checked: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faCheck} className={className} />
+  ),
+  Exclamation: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faExclamation} className={className} />
+  ),
+  FaucetDrip: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faFaucetDrip} className={className} />
+  ),
+  Users: ({ className = "" }) => (
+    <FontAwesomeIcon icon={faUsers} className={className} />
   ),
 };

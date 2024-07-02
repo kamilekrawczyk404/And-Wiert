@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
 import { Container } from "./Container";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
 import { Icon } from "./Icon";
-import MoveIndicator from "./MoveIndicator";
 
 const Hero = ({ currentIndex }) => {
   const heroTexts = [

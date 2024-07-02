@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { animate, useInView } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 
 const Counter = ({ from, to, duration = 1, options }) => {
@@ -52,12 +51,7 @@ const Counter = ({ from, to, duration = 1, options }) => {
             "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center lg:w-[5rem] md:w-[4rem] w-[3rem] aspect-square rounded-full opacity-25 bg-dark-blue"
           }
         ></div>
-        <FontAwesomeIcon
-          icon={options.icon}
-          className={
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-4xl text-2xl text-dark-blue transition"
-          }
-        />
+        {options.icon}
       </div>
 
       <div

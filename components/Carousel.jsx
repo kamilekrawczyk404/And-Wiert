@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Hero from "./Hero";
-import MoveIndicator from "./MoveIndicator";
+import Image from "next/image";
 
 export const Carousel = () => {
   const INTERVAL_TIME = 5000;
@@ -13,7 +13,9 @@ export const Carousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (imageNames.length - 1 == prev ? 0 : prev + 1));
+      setCurrentIndex((prev) =>
+        imageNames.length - 1 === prev ? 0 : prev + 1,
+      );
     }, INTERVAL_TIME);
 
     return () => {
@@ -25,19 +27,23 @@ export const Carousel = () => {
     <div className={"relative h-[calc(100vh-8.5rem)] min-h-fit"}>
       <div className={"relative h-[calc(100vh-8.5rem)] overflow-hidden"}>
         <AnimatePresence>
-          <motion.img
+          <motion.div
             key={currentIndex}
             exit={{ opacity: 0, x: 100 }}
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              duration: 0.25,
+              duration: 0.5,
             }}
-            src={`/images/hero/${imageNames[currentIndex]}`}
-            className={
-              "absolute left-0 top-0 bg-no-repeat bg-cover w-full h-full"
-            }
-          />
+            className={"relative w-full h-full"}
+          >
+            <Image
+              fill
+              objectFit={"cover"}
+              src={`/images/hero/${imageNames[currentIndex]}`}
+              alt={"And-Wiert - zdjęcie w tle sekcji Hero"}
+            />
+          </motion.div>
         </AnimatePresence>
 
         {/*shadow from bottom*/}

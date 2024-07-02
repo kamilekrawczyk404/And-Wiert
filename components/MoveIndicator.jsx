@@ -4,7 +4,7 @@ import { Icon } from "./Icon";
 import { motion } from "framer-motion";
 
 const MoveIndicator = () => {
-  const { userScrolledPage, userScrolledUp } = useUserScrollPage();
+  const { userScrolledPage } = useUserScrollPage();
 
   const scroll = () => {
     userScrolledPage
@@ -32,6 +32,7 @@ const MoveIndicator = () => {
         className={`text-2xl text-dark-blue pointer-events-auto  ${
           userScrolledPage ? "ml-auto" : "animate-bounce"
         }`}
+        title={userScrolledPage ? "Przewiń do góry" : "Przewiń w dół"}
       >
         {userScrolledPage ? (
           <Icon.AnglesUp

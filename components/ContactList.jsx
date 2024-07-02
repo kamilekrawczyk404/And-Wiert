@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Link from "next/link";
 import StaggerList from "./StaggerList";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";
-import { Icon } from "./Icon";
 
 const ContactList = ({ className = "", iconsTextStyling = "" }) => {
   const { contact } = useContext(SiteDetailsContext);

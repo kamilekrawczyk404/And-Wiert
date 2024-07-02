@@ -1,12 +1,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheck,
-  faExclamation,
-  faHourglassHalf,
-} from "@fortawesome/free-solid-svg-icons";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons/faPaperPlane";
+import { Icon } from "./Icon";
 
 const SubmitButton = ({
   isPending,
@@ -71,25 +65,22 @@ const SubmitButton = ({
                   duration: 1,
                 }}
               >
-                <FontAwesomeIcon icon={faHourglassHalf} />
+                <Icon.HourGlassHalf />
               </motion.span>
               <span className={"ml-6"}>Wysyłanie</span>
             </motion.span>
           )}{" "}
           {!isPending && !triedSending && (
             <>
-              <FontAwesomeIcon icon={faPaperPlane} />
+              <Icon.Plane />
               <span>{title}</span>
             </>
           )}
           {isSuccess && triedSending && (
-            <FontAwesomeIcon icon={faCheck} className={"text-white text-xl"} />
+            <Icon.Checked className={"text-white text-xl"} />
           )}
           {isError && triedSending && (
-            <FontAwesomeIcon
-              icon={faExclamation}
-              className={"text-white text-xl"}
-            />
+            <Icon.Exclamation className={"text-white text-xl"} />
           )}
         </motion.button>
 

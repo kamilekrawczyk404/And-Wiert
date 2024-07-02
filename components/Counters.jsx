@@ -1,27 +1,27 @@
-import {
-  faCheck,
-  faFaucetDrip,
-  faUsers,
-} from "@fortawesome/free-solid-svg-icons";
 import Counter from "./Counter";
 import { Container } from "./Container";
+import React from "react";
+import { Icon } from "./Icon";
 
 export const Counters = () => {
+  const iconClassName =
+    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-4xl text-2xl text-dark-blue transition";
+
   const achievements = [
     {
       title: "zadowolonych klientów",
-      icon: faUsers,
+      icon: <Icon.Users className={iconClassName} />,
       to: 100,
       percentage: true,
     },
     {
       title: "lat doświadczenia",
-      icon: faCheck,
+      icon: <Icon.Checked className={iconClassName} />,
       to: 10,
     },
     {
       title: "wykonanych usług rocznie",
-      icon: faFaucetDrip,
+      icon: <Icon.FaucetDrip className={iconClassName} />,
       to: 50,
     },
   ];
