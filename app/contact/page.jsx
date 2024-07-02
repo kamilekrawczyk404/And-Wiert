@@ -28,7 +28,7 @@ export default function Contact() {
               <p className={"text-dark-blue"}>
                 Jeśli masz pytania, potrzebujesz dodatkowych informacji lub
                 chcesz nawiązać współpracę, skontaktuj się z nami. Wypełnij
-                poniższy formularz, a nasz zespół odpowie na Twoją wiadomość tak
+                formularz obok, a nasz zespół odpowie na Twoją wiadomość tak
                 szybko, jak to możliwe.
               </p>
               <HorizontalLine className={"w-full"} />
