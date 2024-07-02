@@ -1,3 +1,5 @@
+"use client";
+
 import ArticleAspect from "./ArticleAspect";
 
 export const ArticleSection = ({

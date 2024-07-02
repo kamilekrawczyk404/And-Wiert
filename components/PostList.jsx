@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import StaggerList from "./StaggerList";
 import Image from "next/image";

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { ArticleSection } from "../../components/ArticleSection";
 import HorizontalLine from "../../components/HorizontalLine";
@@ -7,16 +5,42 @@ import MessageForm from "../../components/MessageForm";
 import { Container } from "../../components/Container";
 import SocialsList from "../../components/SocialsList";
 import ContactList from "../../components/ContactList";
-import Seo from "../../components/Seo";
+
+const metadataContent = {
+  title: "Informacje Kontaktowe",
+  url: "https://and-wiert.pl/contact",
+  imageSrc: "https://and-wiert.pl/images/gallery/gallery5.webp",
+  description:
+    "And-Wiert - profesjonalna firma specjalizująca się w Wierceniu Studni Głębinowych. Zapewniamy kompleksowe usługi z zakresu budowy i konserwacji studni wodnych, gwarantując wysoką jakość, sprawność oraz bezpieczeństwo. Skorzystaj z naszego doświadczenia i zapewnij sobie niezawodne źródło czystej wody.",
+};
+
+export const metadata = {
+  title: metadataContent.title,
+  description: metadataContent.description,
+  twitter: {
+    title: metadataContent.title,
+    images: [metadataContent.imageSrc],
+    description: metadataContent.description,
+    url: metadataContent.url,
+  },
+  openGraph: {
+    title: metadataContent.title,
+    images: [metadataContent.imageSrc],
+    description: metadataContent.description,
+    url: metadataContent.url,
+  },
+  canonicalUrl: {
+    context: "https://schema.org",
+    type: "Organization",
+    name: metadataContent.title,
+    url: metadataContent.url,
+    logo: "https://and-wiert.pl/images/favicon.png",
+  },
+};
 
 export default function Contact() {
   return (
     <>
-      <Seo
-        title={"And-Wiert - Kontakt"}
-        image={"https://and-wiert.pl/images/hero/main1.webp"}
-        url={"https://and-wiert.pl/contact"}
-      />
       <Container className={`bg-white`}>
         <ArticleSection title={"Bądźmy w kontakcie"}>
           <div

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useContext } from "react";
 import StaggerList from "./StaggerList";
 import Link from "next/link";

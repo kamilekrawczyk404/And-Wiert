@@ -25,7 +25,7 @@ export const Gallery = () => {
     "gallery4.webp",
     "gallery5.webp",
     "gallery6.webp",
-    "gallery7.webp",
+    // "gallery7.webp",
     "gallery8.webp",
     "gallery9.webp",
     "gallery10.webp",

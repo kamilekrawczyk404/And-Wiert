@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import useUserScrollPage from "../hooks/useUserScrolledPage";
 import { Icon } from "./Icon";

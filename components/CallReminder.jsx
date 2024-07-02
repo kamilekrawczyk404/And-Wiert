@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext } from "react";
 import { Container } from "./Container";
 import { SiteDetailsContext } from "../utils/providers/SiteDetailsProvider";

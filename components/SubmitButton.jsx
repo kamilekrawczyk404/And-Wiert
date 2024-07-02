@@ -18,6 +18,7 @@ const SubmitButton = ({
     >
       <AnimatePresence>
         <motion.button
+          title={title}
           whileTap={{
             scale: 0.95,
           }}
