@@ -6,7 +6,6 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReactQueryProvider from "../utils/providers/ReactQueryProvider";
 import { SiteDetailsProvider } from "../utils/providers/SiteDetailsProvider";
-import Head from "next/head";
 import { Icon } from "../components/Icon";
 
 config.autoAddCss = false;
@@ -46,7 +45,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={"bg-dark-blue"}>
+      <body className={"bg-dark-blue overflow-x-hidden"}>
         <ReactQueryProvider>
           <SiteDetailsProvider>
             <Navbar />

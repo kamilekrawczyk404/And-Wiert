@@ -23,9 +23,9 @@ const MoveIndicator = () => {
       transition={{
         delay: 0.5,
       }}
-      className={`pointer-events-none flex z-50 ${
+      className={`pointer-events-none flex z-20 ${
         userScrolledPage
-          ? "sticky md:flex hidden md:bottom-2 mb-1 w-screen"
+          ? "sticky md:flex hidden md:bottom-2 mb-1"
           : "absolute left-1/2 -translate-x-1/2 md:bottom-[2rem] bottom-[1rem] flex items-center justify-center"
       }`}
     >
