@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ReactQueryProvider from "../utils/providers/ReactQueryProvider";
 import { SiteDetailsProvider } from "../utils/providers/SiteDetailsProvider";
 import { Icon } from "../components/Icon";
+import GoogleAds from "../components/GoogleAds";
 
 config.autoAddCss = false;
 
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={"bg-dark-blue overflow-x-hidden"}>
         <ReactQueryProvider>
+          <GoogleAds gTagId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
           <SiteDetailsProvider>
             <Navbar />
             {children}
