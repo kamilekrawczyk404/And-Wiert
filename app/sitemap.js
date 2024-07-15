@@ -1,6 +1,8 @@
-import { postsTitles } from "../utils/postsTitles";
+import { blogPosts } from "../utils/blogPosts";
 
 export default function sitemap() {
+  const postsTitles = blogPosts.map((post) => post.title);
+
   const posts = postsTitles.map((title) => ({
     url: `https://and-wiert.pl/blog/${title}`,
     lastModified: new Date().toISOString().split("T")[0],
