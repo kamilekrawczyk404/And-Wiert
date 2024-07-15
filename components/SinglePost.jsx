@@ -178,7 +178,11 @@ const SinglePost = ({ title }) => {
         </div>
 
         <PostTitle title={"Zobacz również nasze inne posty"} />
-        <div className={"grid md:grid-cols-2 md:gap-4 gap-2"}>
+        <div
+          className={
+            "grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-4 gap-2"
+          }
+        >
           {remainingPosts.map((post, index) => (
             <PostPreview postProperties={post} key={index} inColumn />
           ))}

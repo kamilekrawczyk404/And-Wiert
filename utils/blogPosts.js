@@ -64,7 +64,135 @@ const positiveAspectsFindingWater = [
   },
 ];
 
+const choosingOurCompany = [
+  {
+    title: "Doświadczenie i profesjonalizm",
+    descriptions: [
+      "nasz zespół składa się z wykwalifikowanych specjalistów z wieloletnim doświadczeniem w branży. Każdy projekt traktujemy indywidualnie, dostosowując się do specyficznych potrzeb i wymagań klienta.",
+    ],
+    imageSrc: "/images/gallery/gallery9.webp",
+  },
+  {
+    title: "Najwyższa jakość usług",
+    descriptions: [
+      "korzystamy z nowoczesnych technologii oraz sprawdzonych materiałów, co gwarantuje trwałość i niezawodność wykonanych instalacji. Dbamy o każdy detal, aby zapewnić pełne zadowolenie naszych klientów.",
+    ],
+  },
+  {
+    title: "Kompleksowa obsługa",
+    descriptions: [
+      "oferujemy pełen zakres usług, od analizy terenu po montaż i podłączenie instalacji wodnej. Dzięki temu mają Państwo pewność, że cały proces będzie przeprowadzony sprawnie i bezproblemowo.",
+    ],
+  },
+  {
+    title: "Bezpieczeństwo i ekologia",
+    descriptions: [
+      "dbamy o to, aby nasze działania były bezpieczne dla środowiska. Stosujemy ekologiczne rozwiązania, które minimalizują wpływ na przyrodę i gwarantują czystą wodę przez wiele lat.",
+    ],
+    imageSrc: "/images/gallery/gallery10.webp",
+  },
+];
+
+const priceFactors = [
+  {
+    title: "Głębokość studni",
+    descriptions: [
+      "im głębsza studnia, tym większe wymagania sprzętowe i czasowe,",
+      "od głębokości uzależniona jest ilośc potrzebnego czasu, który musimy przeznaczyć na wykonanie odwiertu na odpowiednią odleglość,",
+    ],
+    imageSrc: "/images/gallery/gallery8.webp",
+  },
+  {
+    title: "Rodzaj gruntu",
+    descriptions: [
+      "różne typy podłoża mogą wymagać zastosowania odmiennych technologii wiercenia,",
+      "w trakcie wykonywania odwiertu możemy napotkać na różne przeszkody, np. postaci twardych skał, które skutecznie hamują drogę wiercenia,",
+    ],
+  },
+  {
+    title: "Dostępność terenu ",
+    descriptions: [
+      "niektóre lokalizacje mogą być trudniej dostępne, co może wpłynąć na czas i koszt realizacji,",
+      "w zależności od tego gdzie zlokalizujemy najlepsze miejsce na wywiercenie studni będziemy musieć odpowiednio zabezpieczyć teren, aby maszyna wykonująca odwiert pracowała bez jakichkolwiek problemów,",
+    ],
+  },
+  {
+    title: "Rodzaj pompy głębinowej",
+    descriptions: [
+      "dobór odpowiedniej pompy, dostosowanej do specyficznych warunków i wymagań, również ma wpływ na cenę,",
+      "w miarę odległości oraz musimy zaopatrzyć się w odpowiedni sprzęt, który wydobędzie czystą wodę do Państwa kranów,",
+      "na wybór pompy wpływa wiele czyników, które będziemy musieć ustalić telefonicznie lub w trakcie wykonywania usługi,",
+    ],
+    imageSrc: "/images/gallery/zdj1.webp",
+  },
+  {
+    title: "Zakres dodatkowych prac",
+    descriptions: [
+      "instalacja systemu rurociągów i podłączenie instalacji wodnej do domu to kluczowe elementy, które mogą różnić się w zależności od indywidualnych potrzeb klienta,",
+      "czynnik ten jest silnie uzależniony od tego w jakiej odległości będzie znajdować się studnia od miejsca docelowego dostarczenia wody oraz samego skomplikowania konstrukcji systemów do oczyszcania i uzdatniania wody,",
+    ],
+  },
+];
+
 export const blogPosts = [
+  {
+    title: "ile-kosztuje-wykopanie-studni-glebinowej-cennik",
+    titleAsString: "Ile kosztuje wykopanie studni głębinowej - cennik?",
+    tags: [
+      "#StudnieGłębinowe",
+      "#WiercenieStudni",
+      "#WodaPodziemna",
+      "#CzystaWoda",
+      "#ZasobyWodne",
+      "#Geologia",
+      "#PompyWodne",
+      "#Cennik",
+      "#CenaWykopaniaStudniGłębinowej",
+      "#InwestycjaWZasobyWodne",
+    ],
+    readingTime: "2min",
+    description:
+      "Coraz więcej osób decyduje się na inwestycję w studnie głębinowe jako niezawodne źródło czystej wody. W dobie rosnących cen wodociągowych oraz obaw o jakość wody dostarczanej przez sieć publiczną, posiadanie własnej studni głębinowej staje się nie tylko opłacalnym, ale również zdrowym rozwiązaniem. Zapewne interesuje Państwa ilość kosztów, jak i sama cena, która kryje się pod usługą wykopania studni głębinowej przez naszą firmę. Cena ustalana jest inywidualnie po wcześniejszej rozmowie z klientem oraz sprawdzeniu warunków terenu, na którym będzie obdywał się odwiert. Zapewniamy jednak, że sugerowana cena będzie stosunkowo niska i konkurencyjna z innymi firmami działającymi na naszym obszarze. Obszar, który obejmuje nasza firma to województwo małopolskie (m.in. Gromnik, Bobowa, Tarnów, Tuchów, Zakliczyn, Gorlice, itd.) oraz podkarpackie (m.in. Biecz, Jasło, Krosno, Dynów, Dębica, Rzeszów, itd.).",
+    imageSrc: "/images/gallery/gallery5.webp",
+    imageAlt:
+      "Zdjęcie główne posta - jak cena za wykonanie studni głębinowej, cennik",
+    body: [
+      {
+        title: "Wstęp - ile kosztuje wywiercenie studni głębinowej - cennik",
+        content: [
+          "Coraz więcej osób decyduje się na inwestycję w studnie głębinowe jako niezawodne źródło czystej wody. W dobie rosnących cen wodociągowych oraz obaw o jakość wody dostarczanej przez sieć publiczną, posiadanie własnej studni głębinowej staje się nie tylko opłacalnym, ale również zdrowym rozwiązaniem. Zapewne interesuje Państwa ilość kosztów, jak i sama cena, która kryje się pod usługą wykopania studni głębinowej przez naszą firmę.",
+          "Cena ustalana jest inywidualnie po wcześniejszej rozmowie z klientem oraz sprawdzeniu warunków terenu, na którym będzie obdywał się odwiert. Zapewniamy jednak, że sugerowana cena będzie stosunkowo niska i konkurencyjna z innymi firmami działającymi na naszym obszarze. Obszar, który obejmuje nasza firma to województwo małopolskie (m.in. Gromnik, Bobowa, Tarnów, Tuchów, Zakliczyn, Gorlice, itd.) oraz podkarpackie (m.in. Biecz, Jasło, Krosno, Dynów, Dębica, Rzeszów, itd.).",
+          <PostList aspects={priceFactors} />,
+        ],
+      },
+      {
+        title: "Dlaczego warto wybrać naszą firmę?",
+        content: (
+          <>
+            <p>
+              Wybór odpowiedniej firmy do wykonania studni głębinowej ma
+              kluczowe znaczenie dla jej funkcjonalności i trwałości. Nasza
+              firma wyróżnia się na tle konkurencji dzięki kilku istotnym cechom
+            </p>
+            <PostList aspects={choosingOurCompany} />
+          </>
+        ),
+      },
+      {
+        title: "Korzyści z posiadania studni głębinowej",
+        content: [
+          "Inwestycja w studnię głębinową to nie tylko oszczędność, ale także wygoda i bezpieczeństwo. Posiadając własne źródło wody, nie muszą się Państwo martwić o przerwy w dostawie wody czy jej jakość. Dodatkowo, niezależność od sieci wodociągowej oznacza brak miesięcznych rachunków za wodę, co w dłuższej perspektywie przynosi znaczące oszczędności.",
+          "Zapraszamy do skorzystania z naszych usług. Dzięki nam zyskają Państwo pewność, że inwestycja w studnię głębinową zostanie wykonana profesjonalnie, szybko i z najwyższą starannością. Skontaktuj się z nami, aby omówić szczegóły i zaplanować realizację swojego projektu!",
+        ],
+      },
+      {
+        title: "Podsumowanie",
+        content:
+          "Serdecznie zapraszamy do kontaktu, aby uzyskać więcej informacji oraz umówić się na bezpłatną konsultację. Razem ustalimy najlepsze rozwiązania i opracujemy plan działania, który spełni Państwa oczekiwania i potrzeby. Zaufaj naszemu doświadczeniu i profesjonalizmowi – zapewnimy Państwu wodę na najwyższym poziomie!",
+      },
+    ],
+  },
+
   {
     title: "jak-wiercimy-studnie",
     titleAsString: "Jak Wiercimy Studnie Głębinowe?",
@@ -79,6 +207,8 @@ export const blogPosts = [
       "#ZrównoważonyRozwój",
       "#NiezależnośćWodna",
       "#InwestycjaWZasobyWodne",
+      "#IleKosztujeWykopanieStudni",
+      "#JakWykopaćStudnie",
     ],
     readingTime: "2min",
     description:
@@ -87,7 +217,7 @@ export const blogPosts = [
     imageAlt: "Zdjęcie główne posta - jak wiercimy studnie głebinowe",
     body: [
       {
-        title: "Wstęp",
+        title: "Wstęp - jak wiercimy studnie głębinowe",
         content: [
           "Proces wiercenia studni głębinowej może wydawać się skomplikowany i pełen wyzwań, ale dla wielu osób jest to kluczowy krok do zapewnienia sobie dostępu do czystej i niezawodnej wody. Niezależnie od tego, czy planujesz wykonać studnię na własnej działce, czy chcesz poznać najnowsze technologie w tej dziedzinie, nasz dzisiejszy wpis dostarczy Ci wszystkich niezbędnych informacji.",
           "Dzięki odpowiedniej wiedzy i technologiom, proces wiercenia może być bardziej efektywny i mniej czasochłonny. Nowoczesne metody pozwalają na precyzyjne określenie miejsc, gdzie warto wykonać odwiert, co znacznie zwiększa szanse na sukces. Zapraszamy do lektury i odkrycia, jak współczesna nauka i technika mogą pomóc w zdobyciu dostępu do cennych zasobów wodnych.",
@@ -143,7 +273,7 @@ export const blogPosts = [
     imageSrc: "/images/diggingStages/terrainAnalyze.webp",
     body: [
       {
-        title: "Wstęp",
+        title: "Wstęp - odpowiednia lokalizacja dla studni - metoda oporowa",
         content: [
           "Wykonanie studni głębinowej to inwestycja na lata, dlatego kluczowym etapem tego procesu jest znalezienie odpowiedniego miejsca na działce, gdzie występują zasoby wodne na odpowiedniej głębokości i w odpowiedniej ilości. Jedną z najbardziej skutecznych metod badania podłoża i identyfikacji najlepszych lokalizacji do wiercenia studni jest metoda oporowa, znana również jako metoda geofizyczna. W tym wpisie szczegółowo omówimy, jak działa metoda oporowa, jakie są jej zalety oraz jak przeprowadza się takie badania.",
         ],
@@ -198,7 +328,7 @@ export const blogPosts = [
     imageSrc: "/images/carTransport/car_transport1.webp",
     body: [
       {
-        title: "Wstęp",
+        title: "Wstęp - usługi auto lawetą",
         content: [
           "Nasza firma nie tylko specjalizuje się w wierceniu studni głębinowych i poszukiwaniu zasobów wodnych, ale także oferuje szeroki zakres usług transportowych, w tym auto lawetę. Dzięki temu możemy zapewnić kompleksową obsługę naszych klientów, niezależnie od ich potrzeb. Nasza oferta transportowa jest dostosowana zarówno do klientów indywidualnych, jak i biznesowych, gwarantując szybki i bezpieczny przewóz pojazdów w każdych warunkach.",
         ],
