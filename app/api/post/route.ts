@@ -31,12 +31,15 @@ export async function GET(request: NextRequest) {
     const id: string = request.nextUrl.searchParams.get("title") ?? "";
 
     // object for storing arguments from url
-    let searchingArgs = {};
+    let searchingArgs = {
+      take: 0,
+      id: "",
+    };
 
     if (take !== 0) {
       searchingArgs.take = take;
     } else if (id !== "") {
-      searchingArgs.id = title;
+      searchingArgs.id = id;
     }
 
     const posts = await prisma.post.findMany({
