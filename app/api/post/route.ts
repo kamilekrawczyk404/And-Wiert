@@ -24,14 +24,25 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
+    // getting data from url
     const take: number = parseInt(
       request.nextUrl.searchParams.get("take") ?? "0",
     );
+    const id: string = request.nextUrl.searchParams.get("title") ?? "";
+
+    // object for storing arguments from url
+    let searchingArgs = {};
+
+    if (take !== 0) {
+      searchingArgs.take = take;
+    } else if (id !== "") {
+      searchingArgs.id = title;
+    }
 
     const posts = await prisma.post.findMany({
       include: { comments: true },
-      take: take,
       orderBy: { createdAt: "desc" },
+      ...searchingArgs,
     });
 
     return NextResponse.json(posts);

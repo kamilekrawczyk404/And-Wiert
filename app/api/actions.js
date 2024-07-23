@@ -43,6 +43,23 @@ export const createPost = () => {
   return { newPost: data, mutate, isSuccess };
 };
 
+export const getSinglePost = (id) => {
+  const { data, isPending, isError } = useQuery({
+    queryKey: ["post", id],
+    queryFn: async () => {
+      const response = await fetch(`/api/post/?id=${id}`);
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return response.json();
+    },
+  });
+
+  return { data, isPending, isError };
+};
+
 export const sortPostsByDate = (posts) => {
   return (
     posts
