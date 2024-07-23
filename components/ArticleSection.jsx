@@ -16,28 +16,26 @@ export const ArticleSection = ({
     <section
       {...props}
       className={
-        "relative flex flex-col justify-center text-gray-700 lg:py-16 py-8"
+        "relative flex flex-col justify-center gap-4 text-gray-700 lg:py-16 py-8"
       }
     >
-      <h2
-        className={"text-dark-orange font-semibold sm:text-3xl text-2xl mb-2"}
-      >
+      <h2 className={"text-dark-orange font-semibold sm:text-3xl text-2xl"}>
         {title}
       </h2>
+      <h3
+        className={
+          " sm:text-4xl text-2xl font-bold " +
+          (header ? "block" : "hidden") +
+          (darkTheme ? " text-gray-100" : " text-dark-blue")
+        }
+      >
+        {header}
+      </h3>
       <article
         className={
           "flex flex-col gap-4 justify-center text-dark-blue " + className
         }
       >
-        <h3
-          className={
-            " sm:text-4xl text-2xl font-bold " +
-            (header ? "block" : "hidden") +
-            (darkTheme ? " text-gray-100" : " text-dark-blue")
-          }
-        >
-          {header}
-        </h3>
         <p className={description ? "block" : "hidden"}>{description}</p>
         <div
           className={
@@ -46,7 +44,7 @@ export const ArticleSection = ({
           }
         >
           {aspects.map((aspect, index) => (
-            <ArticleAspect key={index} title={aspect.title} />
+            <ArticleAspect key={index} title={aspect.title} className />
           ))}
         </div>
         {children}

@@ -22,10 +22,16 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const take: number = parseInt(
+      request.nextUrl.searchParams.get("take") ?? "0",
+    );
+
     const posts = await prisma.post.findMany({
       include: { comments: true },
+      take: take,
+      orderBy: { createdAt: "desc" },
     });
 
     return NextResponse.json(posts);

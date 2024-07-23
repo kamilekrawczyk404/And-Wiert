@@ -1,17 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import PostBasicInfo from "./PostBasicInfo";
+import { motion } from "framer-motion";
+import { forwardRef } from "react";
 
 export const PostPreview = ({
+  inColumn,
+  className,
   postProperties,
-  inColumn = false,
-  className = "",
+  ...props
 }) => {
   return (
-    <div
+    <motion.div
       className={`relative w-full bg-gray-100 rounded-sm shadow-sm overflow-hidden flex group border-2 border-dark-blue ${
         inColumn ? "flex-col-reverse" : "md:flex-row flex-col-reverse"
       } ${className}`}
+      {...props}
     >
       <div
         className={`flex flex-col ${
@@ -20,9 +26,9 @@ export const PostPreview = ({
       >
         <div className={"space-y-2"}>
           <Link
-            className={
-              "text-dark-orange text-2xl underline font-semibold justify-self-start"
-            }
+            className={`text-dark-orange text-2xl underline font-semibold justify-self-start ${
+              inColumn && "line-clamp-2"
+            }`}
             href={`/blog/${postProperties.title}`}
           >
             {postProperties.titleAsString}
@@ -35,11 +41,7 @@ export const PostPreview = ({
           />
         </div>
 
-        <p
-          className={
-            "w-full md:line-clamp-3 line-clamp-6 overflow-ellipsis text-dark-blue"
-          }
-        >
+        <p className={"w-full line-clamp-3 overflow-ellipsis text-dark-blue"}>
           {postProperties.description}
         </p>
         <Link
@@ -54,7 +56,7 @@ export const PostPreview = ({
 
       <div
         className={`relative ${
-          inColumn ? "w-full h-[10rem] " : "md:w-2/5 w-full md:h-auto h-[10rem]"
+          inColumn ? "w-full h-[10rem]" : "md:w-2/5 w-full md:h-auto h-[10rem]"
         } overflow-hidden`}
       >
         <Image
@@ -65,6 +67,6 @@ export const PostPreview = ({
           alt={postProperties.titleAsString}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };

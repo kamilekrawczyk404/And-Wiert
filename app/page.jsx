@@ -5,6 +5,7 @@ import { Counters } from "../components/Counters";
 import { CallReminder } from "../components/CallReminder";
 import { VoivodeshipMap } from "../components/VoivodeshipMap";
 import MoveIndicator from "../components/MoveIndicator";
+import BlogPostsCarousel from "../components/BlogPostsCarousel";
 
 const metadataContent = {
   title: "And-Wiert | Wiercenie Studni Głębinowych",
@@ -46,6 +47,7 @@ export default function Home() {
       <Counters />
       <CallReminder />
       <VoivodeshipMap />
+      <BlogPostsCarousel />
       <MoveIndicator />
     </>
   );

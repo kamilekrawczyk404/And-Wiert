@@ -4,18 +4,21 @@ import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import StaggerList from "./StaggerList";
 import { PostPreview } from "./PostPreview";
-import { createPost, getPosts } from "../app/api/actions";
+import { createPost, getPosts, sortPostsByDate } from "../app/api/actions";
 import { blogPosts } from "../utils/blogPosts";
 
 const PostsList = () => {
-  const { data, isPending, isError } = getPosts();
+  const POSTS_PER_PAGE = 10;
+
+  const { data, isPending, isError } = getPosts(POSTS_PER_PAGE);
+
   const { newPost, isSuccess, mutate } = createPost();
 
   const [posts, setPosts] = useState(blogPosts);
 
   useEffect(() => {
     if (!isPending && !isError) {
-      // there's remaining post, add it to the db
+      // there's remaining post, add it to the database
       if (data.length !== blogPosts.length) {
         blogPosts.forEach((post) => {
           if (
@@ -30,12 +33,7 @@ const PostsList = () => {
         });
       }
 
-      setPosts((prev) =>
-        prev.map((post, index) => ({
-          ...post,
-          createdAt: data[index].createdAt,
-        })),
-      );
+      setPosts((prev) => sortPostsByDate(prev));
     }
   }, [isPending, newPost, isSuccess]);
 

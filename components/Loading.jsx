@@ -2,12 +2,12 @@ import React from "react";
 import { Icon } from "./Icon";
 import { motion } from "framer-motion";
 
-const Loading = ({ title }) => {
+const Loading = ({ title, screen = true }) => {
   return (
     <div
-      className={
-        "h-[calc(100vh-8rem)] flex items-center justify-center text-dark-blue"
-      }
+      className={`${
+        screen ? "h-[calc(100vh-8rem)]" : "h-fit"
+      } flex items-center justify-center text-dark-blue`}
     >
       <div
         className={

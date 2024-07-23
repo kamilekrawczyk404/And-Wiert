@@ -106,7 +106,7 @@ export const Gallery = () => {
         <Splide
           ref={mainRef}
           options={mainOptions}
-          className={"w-full cursor-grab active:cursor-grabbing relative "}
+          className={"w-full cursor-grab active:cursor-grabbing relative"}
           hasTrack={false}
         >
           <SplideTrack>{renderImages()}</SplideTrack>
