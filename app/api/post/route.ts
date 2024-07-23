@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/utils/prisma/prismaConnection";
+import { any, string } from "prop-types";
 
 export async function POST(request: NextRequest) {
   // Storing a new post
@@ -31,10 +32,11 @@ export async function GET(request: NextRequest) {
     const id: string = request.nextUrl.searchParams.get("title") ?? "";
 
     // object for storing arguments from url
-    let searchingArgs = {
-      take: 0,
-      id: "",
-    };
+
+    interface LooseObject {
+      [key: string]: any;
+    }
+    let searchingArgs: LooseObject = {};
 
     if (take !== 0) {
       searchingArgs.take = take;
