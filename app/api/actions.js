@@ -61,6 +61,7 @@ export const getSinglePost = (id) => {
 };
 
 export const sortPostsByDate = (posts) => {
+  console.log(posts, blogPosts);
   return (
     posts
       // include created at date form database table

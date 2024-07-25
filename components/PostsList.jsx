@@ -14,7 +14,7 @@ const PostsList = () => {
 
   const { newPost, isSuccess, mutate } = createPost();
 
-  const [posts, setPosts] = useState(blogPosts);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     if (!isPending && !isError) {
@@ -33,7 +33,7 @@ const PostsList = () => {
         });
       }
 
-      setPosts((prev) => sortPostsByDate(prev));
+      setPosts(sortPostsByDate(data));
     }
   }, [isPending, newPost, isSuccess]);
 

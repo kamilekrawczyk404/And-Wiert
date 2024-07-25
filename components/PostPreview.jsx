@@ -22,7 +22,7 @@ export const PostPreview = ({
       <div
         className={`flex flex-col ${
           inColumn ? "gap-4 w-full" : "md:gap-8 gap-4 md:w-3/5"
-        } p-4`}
+        } md:p-4 p-2`}
       >
         <div className={"space-y-2"}>
           <Link
@@ -36,7 +36,9 @@ export const PostPreview = ({
           <PostBasicInfo
             props={postProperties}
             className={
-              inColumn ? "!flex-col gap-2" : "!md:flex-row flex-col gap-4"
+              inColumn
+                ? "!flex-col flex-shrink gap-2"
+                : "!md:flex-row flex-col flex-shrink-0 gap-4"
             }
           />
         </div>

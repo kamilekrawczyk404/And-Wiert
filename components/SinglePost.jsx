@@ -14,7 +14,7 @@ import StaggerList from "./StaggerList";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import { PostPreview } from "./PostPreview";
-import { getPosts, getSinglePost } from "../app/api/actions";
+import { getSinglePost } from "../app/api/actions";
 import { blogPosts } from "../utils/blogPosts";
 
 const SinglePost = ({ title }) => {
